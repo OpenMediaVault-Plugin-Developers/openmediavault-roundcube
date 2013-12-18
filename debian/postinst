@@ -1,0 +1,67 @@
+#!/bin/sh
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @copyright Copyright (c) 2013 OpenMediaVault Plugin Developers
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+#
+# Setup from: http://trac.roundcube.net/wiki/Howto_Install
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+    configure)
+
+    if ! omv_config_exists "/config/services/roundcube"; then
+
+        DES_KEY=$(</dev/urandom tr -dc "A-Za-z0-9!@#%^*" | head -c24)
+        
+        echo "Creating Initial Configuration"
+        object="<enable>0</enable>"
+        object="${object}<default_host></default_host>"
+        object="${object}<smtp_server></smtp_server>"
+        object="${object}<smtp_port></smtp_port>"
+        object="${object}<smtp_user></smtp_user>"
+        object="${object}<smtp_pass></smtp_pass>"
+        object="${object}<product_name>Roundcube Webmail</product_name>"
+        object="${object}<des_key>${DES_KEY}</des_key>"
+        object="${object}<db_host>localhost</db_host>"
+        object="${object}<db_user>roundcube</db_user>"
+        object="${object}<db_pass>openmediavault</db_pass>"
+        object="${object}<db_name>roundcube</db_name>"
+        object="${object}<showtab>0</showtab>"
+
+        omv_config_add_element "/config/services" "roundcube" "${object}" true
+    fi
+
+    chown -R openmediavault:openmediavault /var/www/roundcube
+    chmod 777 -R /var/www/roundcube/temp/
+    chmod 777 -R /var/www/roundcube/logs/
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0

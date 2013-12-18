@@ -1,0 +1,26 @@
+Alias /webmail /var/www/roundcube
+
+<Directory /var/www/roundcube>
+  Options -Indexes
+    <FilesMatch \.php$>
+        FcgidWrapper /var/www/openmediavault/php-fcgi .php
+        SetHandler fcgid-script
+        Options +ExecCGI
+    </FilesMatch>
+  AllowOverride All
+</Directory>
+
+<Directory /var/www/roundcube/config>
+  Order Deny,Allow
+  Deny from All
+</Directory>
+
+<Directory /var/www/roundcube/temp>
+  Order Deny,Allow
+  Deny from All
+</Directory>
+
+<Directory /var/www/roundcube/logs>
+  Order Deny,Allow
+  Deny from All
+</Directory>

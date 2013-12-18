@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
+# @copyright Copyright (c) 2013 OpenMediaVault Plugin Developers
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+ROUNDCUBE_SITE_CONF_NAME=openmediavault-roundcube-site
+ROUNDCUBE_SITE_ENABLED_CONF=/etc/apache2/sites-enabled/${ROUNDCUBE_SITE_CONF_NAME}
+
+case "$1" in
+    purge)
+        omv_config_delete "//services/roundcube"
+    ;;
+
+    remove)
+        if [ -e ${ROUNDCUBE_SITE_ENABLED_CONF} ]; then
+            a2dissite ${ROUNDCUBE_SITE_CONF_NAME}
+            /etc/init.d/apache2 reload
+        fi
+    ;;
+
+    upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+    ;;
+
+    *)
+        echo "postrm called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
+
+exit 0
