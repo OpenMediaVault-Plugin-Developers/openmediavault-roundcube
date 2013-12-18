@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-roundcube\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-18 09:57-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Are you sure you want to install the Roundcube database?"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "DES Key"
+msgstr ""
+
+msgid "Database Name"
+msgstr ""
+
+msgid "Database Settings"
+msgstr ""
+
+msgid "Default Host"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "If required. Use %p as the password and Roundcube will use the current user's password for login."
+msgstr ""
+
+msgid "If required. Use %u as the username and Roundcube will use the current username for login."
+msgstr ""
+
+msgid "Install DB"
+msgstr ""
+
+msgid "Installing Roundcube database"
+msgstr ""
+
+msgid "Launch webmail site"
+msgstr ""
+
+msgid "MySQL root Password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Product Name"
+msgstr ""
+
+msgid "Random key created at installation.  Must be 24 characters long."
+msgstr ""
+
+msgid "Roundcube"
+msgstr ""
+
+msgid "SMTP Password"
+msgstr ""
+
+msgid "SMTP Port"
+msgstr ""
+
+msgid "SMTP Server"
+msgstr ""
+
+msgid "SMTP User"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Show tab containing webmail frame."
+msgstr ""
+
+msgid "The mail host chosen to perform the log-in. Leave blank to show a textbox at login."
+msgstr ""
+
+msgid "Used only for installing Roundcube database and will not be saved."
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Webmail"
+msgstr ""
+
+msgid "Webmail site"
+msgstr ""
