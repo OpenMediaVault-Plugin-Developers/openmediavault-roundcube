@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# zubr139 <zubr139@ukr.net>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-roundcube\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-18 09:57-0600\n"
+"PO-Revision-Date: 2013-12-21 01:56+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault-roundcube/language/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Are you sure you want to install the Roundcube database?"
+msgstr " Справді бажаєте встановити базу даних Roundcube?"
+
+msgid "Confirmation"
+msgstr "Підтвердження"
+
+msgid "DES Key"
+msgstr "Ключ DES"
+
+msgid "Database Name"
+msgstr "Ім'я бази даних"
+
+msgid "Database Settings"
+msgstr "Налаштування бази даних"
+
+msgid "Default Host"
+msgstr "Типовий вузол"
+
+msgid "Enable"
+msgstr "Увімкнути"
+
+msgid "General settings"
+msgstr "Загальні налаштування"
+
+msgid "Hostname"
+msgstr "Ім'я вузла"
+
+msgid ""
+"If required. Use %p as the password and Roundcube will use the current "
+"user's password for login."
+msgstr "Якщо потрібно. Використовуйте %p в якості пароля і Roundcube буде використовувати поточний пароль користувача для входу в систему."
+
+msgid ""
+"If required. Use %u as the username and Roundcube will use the current "
+"username for login."
+msgstr "Якщо потрібно. Використовуйте %u як ім'я користувача і Roundcube буде використовувати поточне ім'я користувача для входу в систему."
+
+msgid "Install DB"
+msgstr "Встановити БД"
+
+msgid "Installing Roundcube database"
+msgstr "Встановлення бази даних Roundcube"
+
+msgid "Launch webmail site"
+msgstr "Запуск сайту веб-пошти"
+
+msgid "MySQL root Password"
+msgstr "Пароль MySQL root"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Product Name"
+msgstr "Найменування"
+
+msgid "Random key created at installation.  Must be 24 characters long."
+msgstr "Довільний ключ створюється під час встановлення. Повинно бути 24 символи."
+
+msgid "Roundcube"
+msgstr "Roundcube"
+
+msgid "SMTP Password"
+msgstr "Пароль SMTP"
+
+msgid "SMTP Port"
+msgstr "Порт SMTP"
+
+msgid "SMTP Server"
+msgstr "SMTP-сервер"
+
+msgid "SMTP User"
+msgstr "Користувач SMTP"
+
+msgid "Settings"
+msgstr "Налаштування"
+
+msgid "Show tab containing webmail frame."
+msgstr "Показати вкладку, що містить веб-пошту у вікні."
+
+msgid ""
+"The mail host chosen to perform the log-in. Leave blank to show a textbox at"
+" login."
+msgstr "Вузол пошти обраний для виконання входу в систему. Залиште порожнім, щоб показати текстове поле під час входу до системи."
+
+msgid "Used only for installing Roundcube database and will not be saved."
+msgstr "Використовується лише для встановлення бази даних Roundcube і не буде збережено."
+
+msgid "Username"
+msgstr "Ім'я користувача"
+
+msgid "Webmail"
+msgstr "Поштовий веб-інтерфейс"
+
+msgid "Webmail site"
+msgstr "Поштовий веб-інтерфейс сайту"
