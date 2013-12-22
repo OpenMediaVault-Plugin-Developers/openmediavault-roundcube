@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 09:57-0600\n"
-"PO-Revision-Date: 2013-12-20 18:53+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2013-12-22 11:31-0600\n"
+"PO-Revision-Date: 2013-12-22 17:32+0000\n"
+"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault-roundcube/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,11 +36,20 @@ msgstr "Настройки базы данных"
 msgid "Default Host"
 msgstr "Хост по умолчанию"
 
+msgid "Default Host:  ssl://imap.gmail.com:993"
+msgstr ""
+
 msgid "Enable"
 msgstr "Включить"
 
+msgid "Examples:"
+msgstr ""
+
 msgid "General settings"
 msgstr "Общие параметры"
+
+msgid "Gmail:"
+msgstr ""
 
 msgid "Hostname"
 msgstr "Имя хоста"
@@ -54,6 +63,9 @@ msgid ""
 "If required. Use %u as the username and Roundcube will use the current "
 "username for login."
 msgstr "Если требуется. Используйте %u в качестве имени пользователя и Roundcube будет использовать текущее имя пользователя для входа в систему."
+
+msgid "Information"
+msgstr ""
 
 msgid "Install DB"
 msgstr "Установить DB"
@@ -82,14 +94,26 @@ msgstr "Roundcube"
 msgid "SMTP Password"
 msgstr "Пароль SMTP"
 
+msgid "SMTP Password:  %p"
+msgstr ""
+
 msgid "SMTP Port"
 msgstr "Порт SMTP"
+
+msgid "SMTP Port:  465"
+msgstr ""
 
 msgid "SMTP Server"
 msgstr "SMTP-сервер"
 
+msgid "SMTP Server:  tls://smtp.gmail.com"
+msgstr ""
+
 msgid "SMTP User"
 msgstr "SMTP Пользователь"
+
+msgid "SMTP User:  %u"
+msgstr ""
 
 msgid "Settings"
 msgstr "Настройки"

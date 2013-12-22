@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 09:57-0600\n"
+"POT-Creation-Date: 2013-12-22 11:31-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,10 +35,19 @@ msgstr ""
 msgid "Default Host"
 msgstr ""
 
+msgid "Default Host:  ssl://imap.gmail.com:993"
+msgstr ""
+
 msgid "Enable"
 msgstr ""
 
+msgid "Examples:"
+msgstr ""
+
 msgid "General settings"
+msgstr ""
+
+msgid "Gmail:"
 msgstr ""
 
 msgid "Hostname"
@@ -48,6 +57,9 @@ msgid "If required. Use %p as the password and Roundcube will use the current us
 msgstr ""
 
 msgid "If required. Use %u as the username and Roundcube will use the current username for login."
+msgstr ""
+
+msgid "Information"
 msgstr ""
 
 msgid "Install DB"
@@ -77,13 +89,25 @@ msgstr ""
 msgid "SMTP Password"
 msgstr ""
 
+msgid "SMTP Password:  %p"
+msgstr ""
+
 msgid "SMTP Port"
+msgstr ""
+
+msgid "SMTP Port:  465"
 msgstr ""
 
 msgid "SMTP Server"
 msgstr ""
 
+msgid "SMTP Server:  tls://smtp.gmail.com"
+msgstr ""
+
 msgid "SMTP User"
+msgstr ""
+
+msgid "SMTP User:  %u"
 msgstr ""
 
 msgid "Settings"
