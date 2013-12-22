@@ -33,6 +33,6 @@ OMV.WorkspaceManager.registerPanel({
     id        : "webmail",
     path      : "/service/roundcube",
     text      : _("Webmail"),
-    position  : 20,
+    position  : 30,
     className : "OMV.module.admin.service.roundcube.Webmail"
 });
