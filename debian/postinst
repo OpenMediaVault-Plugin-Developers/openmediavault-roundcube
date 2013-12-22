@@ -24,13 +24,16 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+ROUNDCUBE_TEMP="/var/www/roundcube/temp"
+ROUNDCUBE_LOGS="/var/www/roundcube/logs"
+
 case "$1" in
     configure)
 
     if ! omv_config_exists "/config/services/roundcube"; then
 
         DES_KEY=$(</dev/urandom tr -dc "A-Za-z0-9!@#%^*" | head -c24)
-        
+
         echo "Creating Initial Configuration"
         object="<enable>0</enable>"
         object="${object}<default_host></default_host>"
@@ -50,8 +53,16 @@ case "$1" in
     fi
 
     chown -R openmediavault:openmediavault /var/www/roundcube
-    chmod 777 -R /var/www/roundcube/temp/
-    chmod 777 -R /var/www/roundcube/logs/
+
+    if [ ! -d "${ROUNDCUBE_TEMP}" ]; then
+        mkdir -p "${ROUNDCUBE_TEMP}"
+    fi
+    if [ ! -d "${ROUNDCUBE_LOGS}" ]; then
+        mkdir -p "${ROUNDCUBE_LOGS}"
+    fi
+
+    chmod 777 -R "${ROUNDCUBE_TEMP}"
+    chmod 777 -R "${ROUNDCUBE_LOGS}"
 
     ;;
 
