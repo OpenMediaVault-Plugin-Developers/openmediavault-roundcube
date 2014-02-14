@@ -38,6 +38,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0px;
+	overflow: visible; /* fixes display issues of fixed list header in IE */
 }
 
 #mailview-bottom {
@@ -53,12 +54,6 @@
 
 #composeview-right #mailview-bottom {
 	border-radius: 0 0 4px 4px;
-}
-
-#folderlist-header {
-	width: 100%;
-	height: 12px;
-	top: 32px;
 }
 
 #mailboxcontainer,
@@ -154,7 +149,7 @@ a.iconbutton.threadmode.selected {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	background-image: url(images/listicons.png);
+	background-image: url(images/listicons.png?v=017c.29530);
 	background-repeat: no-repeat;
 	background-position: 6px 3px;
 }
@@ -207,6 +202,14 @@ a.iconbutton.threadmode.selected {
 	background-position: 6px -406px;
 }
 
+#mailboxlist li.mailbox.trash.empty > a {
+	background-position: 6px -1924px;
+}
+
+#mailboxlist li.mailbox.trash.empty.selected > a {
+	background-position: 6px -1948px;
+}
+
 #mailboxlist li.mailbox.archive > a {
 	background-position: 6px -1699px;
 }
@@ -245,6 +248,14 @@ a.iconbutton.threadmode.selected {
 
 #mailboxlist li.mailbox ul li.trash.selected > a {
 	background-position: 23px -406px;
+}
+
+#mailboxlist li.mailbox ul li.trash.empty > a {
+	background-position: 23px -1924px;
+}
+
+#mailboxlist li.mailbox ul li.trash.empty.selected > a {
+	background-position: 23px -1948px;
 }
 
 #mailboxlist li.mailbox ul li.archive > a {
@@ -430,7 +441,7 @@ a.iconbutton.threadmode.selected {
 	right: 4px;
 	width: 20px;
 	height: 18px;
-	background: url(images/buttons.png) -3px -458px no-repeat;
+	background: url(images/buttons.png?v=3b60.38715) -3px -458px no-repeat;
 }
 
 #mailpreviewtoggle.enabled {
@@ -525,7 +536,7 @@ table.messagelist.fixedcopy {
 .messagelist thead tr td.sortedDESC a {
 	color: #004458;
 	text-decoration: underline;
-	background: url(images/listicons.png) right -912px no-repeat;
+	background: url(images/listicons.png?v=017c.29530) right -912px no-repeat;
 }
 
 .messagelist thead tr td.sortedASC a {
@@ -588,7 +599,7 @@ table.messagelist.fixedcopy {
 	height: 18px;
 	width: 20px;
 	padding: 0;
-	background: url(images/listicons.png) -100px 0 no-repeat;
+	background: url(images/listicons.png?v=017c.29530) -100px 0 no-repeat;
 }
 
 .messagelist tbody tr td.attachment span.attachment {
@@ -892,7 +903,7 @@ h3.subject {
 	left: 0;
 	width: 18px;
 	height: 16px;
-	background: url(images/buttons.png) -27px -242px no-repeat;
+	background: url(images/buttons.png?v=3b60.38715) -27px -242px no-repeat;
 }
 
 .moreheaderstoggle.remove .iconlink {
@@ -912,7 +923,7 @@ div.more-headers {
 	width: 12px;
 	height: 10px;
 	cursor: pointer;
-	background: url(images/buttons.png) center -1579px no-repeat;
+	background: url(images/buttons.png?v=3b60.38715) center -1579px no-repeat;
 }
 
 div.hide-headers {
@@ -969,7 +980,7 @@ div.hide-headers {
 	width: 32px;
 	height: 32px;
 	overflow: hidden;
-	background: url(images/contactpic_32px.png) center center no-repeat #fff;
+	background: url(images/contactpic_32px.png?v=09a3.287) center center no-repeat #fff;
 	border-radius: 3px;
 }
 
@@ -993,7 +1004,7 @@ div.hide-headers {
 	overflow: hidden;
 	border-radius: 4px;
 	border: 1px solid #e6e6e6;
-	background: url(images/contactpic_48px.png) center center no-repeat #fff;
+	background: url(images/contactpic_48px.png?v=1bc4.353) center center no-repeat #fff;
 }
 
 #messageheader #contactphoto img {
@@ -1055,20 +1066,20 @@ div.hide-headers {
 	margin: 8px;
 }
 
-#message-objects div.notice,
-#message-buttons div.notice {
+#message-objects div.notice {
 	display: block;
 	color: #960;
 	border: 1px solid #ffdf0e;
 	background-color: #fef893;
 	background-position: 5px -83px;
-	padding: 6px 12px 4px 30px;
+	padding: 6px 12px 6px 30px;
 	white-space: normal;
 }
 
 #message-objects div a.button,
 #messagebody span.part-notice a.button {
 	margin-left: 10px;
+	margin-top: -1px;
 }
 
 div.message-part,
@@ -1300,7 +1311,7 @@ div.message-partheaders .headers-table td.header {
 }
 
 #compose-contacts li a, #contacts-table td {
-	background: url(images/listicons.png) -100px 0 no-repeat;
+	background: url(images/listicons.png?v=017c.29530) -100px 0 no-repeat;
 	overflow: hidden;
 	padding-left: 36px;
 	text-overflow: ellipsis;
@@ -1524,7 +1535,7 @@ div.message-partheaders .headers-table td.header {
 }
 
 #compose-attachments.droptarget {
-	background-image: url(images/filedrop.png);
+	background-image: url(images/filedrop.png?v=deab.605);
 	background-position: center bottom;
 	background-repeat: no-repeat;
 }

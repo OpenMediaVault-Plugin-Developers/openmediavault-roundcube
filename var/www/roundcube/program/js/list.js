@@ -20,7 +20,7 @@
 
 /**
  * Roundcube List Widget class
- * @contructor
+ * @constructor
  */
 function rcube_list_widget(list, p)
 {
@@ -32,10 +32,6 @@ function rcube_list_widget(list, p)
   this.list = list ? list : null;
   this.tagname = this.list ? this.list.nodeName.toLowerCase() : 'table';
   this.id_regexp = /^rcmrow([a-z0-9\-_=\+\/]+)/i;
-  this.thead;
-  this.tbody;
-  this.fixed_header;
-  this.frame = null;
   this.rows = {};
   this.selection = [];
   this.rowcount = 0;
@@ -101,6 +97,8 @@ init: function()
     if (this.keyboard)
       rcube_event.add_listener({event:'keydown', object:this, method:'key_press'});
   }
+
+  return this;
 },
 
 
@@ -197,6 +195,12 @@ init_fixed_header: function()
 
     var me = this;
     $(window).resize(function(){ me.resize() });
+    $(window).scroll(function(){
+      var w = $(window);
+      me.fixed_header.css('marginLeft', (-w.scrollLeft()) + 'px');
+      if (!bw.webkit)
+        me.fixed_header.css('marginTop', (-w.scrollTop()) + 'px');
+    });
   }
   else {
     $(this.fixed_header).find('thead').replaceWith(clone);
@@ -223,6 +227,8 @@ resize: function()
     $(this.thead).find('tr td').each(function(index) {
       $(this).css('width', column_widths[index]);
     });
+
+    $(window).scroll();
 },
 
 /**
@@ -1067,7 +1073,7 @@ get_selection: function(deep)
   if (deep !== false && res.length) {
     for (var uid, uids, i=0, len=res.length; i<len; i++) {
       uid = res[i];
-      if (this.rows[uid].has_children && !this.rows[uid].expanded) {
+      if (this.rows[uid] && this.rows[uid].has_children && !this.rows[uid].expanded) {
         uids = this.row_children(uid);
         for (var j=0, uids_len=uids.length; j<uids_len; j++) {
           uid = uids[j];
@@ -1152,6 +1158,7 @@ highlight_children: function(id, status)
 key_press: function(e)
 {
   var target = e.target || {};
+
   if (this.focused != true || target.nodeName == 'INPUT' || target.nodeName == 'TEXTAREA' || target.nodeName == 'SELECT')
     return true;
 
@@ -1173,11 +1180,9 @@ key_press: function(e)
 
     case 37: // Left arrow key
     case 39: // Right arrow key
-    case 107: // Plus sign on a numeric keypad
-    case 109: // Minus sign on a numeric keypad
       // Stop propagation
       rcube_event.cancel(e);
-      var ret = this.use_plusminus_key(keyCode, mod_key);
+      var ret = this.use_arrow_key(keyCode, mod_key);
       this.key_pressed = keyCode;
       this.modkey = mod_key;
       this.triggerEvent('keypress');
@@ -1222,55 +1227,49 @@ key_press: function(e)
  */
 use_arrow_key: function(keyCode, mod_key)
 {
-  var new_row;
+  var new_row,
+    selected_row = this.rows[this.last_selected];
+
   // Safari uses the nonstandard keycodes 63232/63233 for up/down, if we're
   // using the keypress event (but not the keydown or keyup event).
   if (keyCode == 40 || keyCode == 63233) // down arrow key pressed
     new_row = this.get_next_row();
   else if (keyCode == 38 || keyCode == 63232) // up arrow key pressed
     new_row = this.get_prev_row();
+  else {
+    if (!selected_row || !selected_row.has_children)
+      return;
+
+    // expand
+    if (keyCode == 39) {
+      if (selected_row.expanded)
+        return;
+
+      if (mod_key == CONTROL_KEY || this.multiexpand)
+        this.expand_all(selected_row);
+      else
+        this.expand(selected_row);
+    }
+    // collapse
+    else {
+      if (!selected_row.expanded)
+        return;
+
+      if (mod_key == CONTROL_KEY || this.multiexpand)
+        this.collapse_all(selected_row);
+      else
+        this.collapse(selected_row);
+    }
+
+    this.update_expando(selected_row.uid, selected_row.expanded);
+
+    return false;
+  }
 
   if (new_row) {
     this.select_row(new_row.uid, mod_key, false);
     this.scrollto(new_row.uid);
   }
-
-  return false;
-},
-
-
-/**
- * Special handling method for +/- keys
- */
-use_plusminus_key: function(keyCode, mod_key)
-{
-  var selected_row = this.rows[this.last_selected];
-
-  if (!selected_row || !selected_row.has_children)
-    return;
-
-  // expand
-  if (keyCode == 39 || keyCode == 107) {
-    if (selected_row.expanded)
-      return;
-
-    if (mod_key == CONTROL_KEY || this.multiexpand)
-      this.expand_all(selected_row);
-    else
-      this.expand(selected_row);
-  }
-  // collapse
-  else {
-    if (!selected_row.expanded)
-      return;
-
-    if (mod_key == CONTROL_KEY || this.multiexpand)
-      this.collapse_all(selected_row);
-    else
-      this.collapse(selected_row);
-  }
-
-  this.update_expando(selected_row.uid, selected_row.expanded);
 
   return false;
 },

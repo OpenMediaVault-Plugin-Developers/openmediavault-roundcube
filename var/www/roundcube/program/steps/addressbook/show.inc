@@ -5,7 +5,7 @@
  | program/steps/addressbook/show.inc                                    |
  |                                                                       |
  | This file is part of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2012, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2013, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -37,6 +37,15 @@ if ($cid && ($record = $CONTACTS->get_record($cid, true))) {
 
 // get address book name (for display)
 rcmail_set_sourcename($CONTACTS);
+
+$OUTPUT->add_handlers(array(
+    'contacthead'    => 'rcmail_contact_head',
+    'contactdetails' => 'rcmail_contact_details',
+    'contactphoto'   => 'rcmail_contact_photo',
+));
+
+$OUTPUT->send('contact');
+
 
 
 function rcmail_contact_head($attrib)
@@ -79,7 +88,7 @@ function rcmail_contact_details($attrib)
 
     $form = array(
         'contact' => array(
-            'name'    => rcube_label('properties'),
+            'name'    => $RCMAIL->gettext('properties'),
             'content' => array(
               'email' => array('size' => $i_size, 'render_func' => 'rcmail_render_email_value'),
               'phone' => array('size' => $i_size),
@@ -89,7 +98,7 @@ function rcmail_contact_details($attrib)
             ),
         ),
         'personal' => array(
-            'name'    => rcube_label('personalinfo'),
+            'name'    => $RCMAIL->gettext('personalinfo'),
             'content' => array(
                 'gender' => array('size' => $i_size),
                 'maidenname' => array('size' => $i_size),
@@ -101,19 +110,19 @@ function rcmail_contact_details($attrib)
             ),
         ),
     );
-    
+
     if (isset($CONTACT_COLTYPES['notes'])) {
         $form['notes'] = array(
-            'name'    => rcube_label('notes'),
+            'name'    => $RCMAIL->gettext('notes'),
             'content' => array(
                 'notes' => array('type' => 'textarea', 'label' => false),
             ),
         );
     }
-    
+
     if ($CONTACTS->groups) {
         $form['groups'] = array(
-            'name'    => rcube_label('groups'),
+            'name'    => $RCMAIL->gettext('groups'),
             'content' => rcmail_contact_record_groups($record['ID']),
         );
     }
@@ -124,12 +133,14 @@ function rcmail_contact_details($attrib)
 
 function rcmail_render_email_value($email)
 {
+    global $RCMAIL;
+
     return html::a(array(
         'href' => 'mailto:' . $email,
-        'onclick' => sprintf("return %s.command('compose','%s',this)", JS_OBJECT_NAME, JQ($email)),
-        'title' => rcube_label('composeto'),
+        'onclick' => sprintf("return %s.command('compose','%s',this)", rcmail_output::JS_OBJECT_NAME, rcube::JQ($email)),
+        'title' => $RCMAIL->gettext('composeto'),
         'class' => 'email',
-    ), Q($email));
+    ), rcube::Q($email));
 }
 
 
@@ -140,7 +151,7 @@ function rcmail_render_url_value($url)
         'href' => $prefix . $url,
         'target' => '_blank',
         'class' => 'url',
-    ), Q($url));
+    ), rcube::Q($url));
 }
 
 
@@ -163,10 +174,10 @@ function rcmail_contact_record_groups($contact_id)
         $gid = $group['ID'];
         $table->add(null, $checkbox->show($members[$gid] ? $gid : null,
             array('value' => $gid, 'id' => 'ff_gid' . $gid)));
-        $table->add(null, html::label('ff_gid' . $gid, Q($group['name'])));
+        $table->add(null, html::label('ff_gid' . $gid, rcube::Q($group['name'])));
     }
 
-    $hiddenfields = new html_hiddenfield(array('name' => '_source', 'value' => get_input_value('_source', RCUBE_INPUT_GPC)));
+    $hiddenfields = new html_hiddenfield(array('name' => '_source', 'value' => rcube_utils::get_input_value('_source', rcube_utils::INPUT_GPC)));
     $hiddenfields->add(array('name' => '_cid', 'value' => $contact_id));
 
     $form_start = $RCMAIL->output->request_form(array(
@@ -181,12 +192,3 @@ function rcmail_contact_record_groups($contact_id)
 
     return $form_start . html::tag('fieldset', 'contactfieldgroup contactgroups', $table->show()) . $form_end;
 }
-
-
-$OUTPUT->add_handlers(array(
-    'contacthead'    => 'rcmail_contact_head',
-    'contactdetails' => 'rcmail_contact_details',
-    'contactphoto'   => 'rcmail_contact_photo',
-));
-
-$OUTPUT->send('contact');

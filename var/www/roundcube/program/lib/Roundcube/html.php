@@ -677,8 +677,8 @@ class html_table extends html
      */
     public function __construct($attrib = array())
     {
-        $default_attrib = self::$doctype == 'xhtml' ? array('summary' => '', 'border' => 0) : array();
-        $this->attrib = array_merge($attrib, $default_attrib);
+        $default_attrib = self::$doctype == 'xhtml' ? array('summary' => '', 'border' => '0') : array();
+        $this->attrib   = array_merge($attrib, $default_attrib);
 
         if (!empty($attrib['tagname']) && $attrib['tagname'] != 'table') {
           $this->tagname = $attrib['tagname'];
@@ -880,7 +880,7 @@ class html_table extends html
     private function _row_tagname()
     {
         static $row_tagnames = array('table' => 'tr', 'ul' => 'li', '*' => 'div');
-        return $row_tagnames[$this->tagname] ?: $row_tagnames['*'];
+        return $row_tagnames[$this->tagname] ? $row_tagnames[$this->tagname] : $row_tagnames['*'];
     }
 
     /**
@@ -889,7 +889,7 @@ class html_table extends html
     private function _col_tagname()
     {
         static $col_tagnames = array('table' => 'td', '*' => 'span');
-        return $col_tagnames[$this->tagname] ?: $col_tagnames['*'];
+        return $col_tagnames[$this->tagname] ? $col_tagnames[$this->tagname] : $col_tagnames['*'];
     }
 
 }

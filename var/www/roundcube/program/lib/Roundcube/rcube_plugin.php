@@ -125,12 +125,16 @@ abstract class rcube_plugin
         $fpath = $this->home.'/'.$fname;
         $rcube = rcube::get_instance();
 
-        if (is_file($fpath) && !$rcube->config->load_from_file($fpath)) {
+        if (($is_local = is_file($fpath)) && !$rcube->config->load_from_file($fpath)) {
             rcube::raise_error(array(
                 'code' => 527, 'type' => 'php',
                 'file' => __FILE__, 'line' => __LINE__,
                 'message' => "Failed to load config from $fpath"), true, false);
             return false;
+        }
+        else if (!$is_local) {
+            // Search plugin_name.inc.php file in any configured path
+            return $rcube->config->load_from_file($this->ID . '.inc.php');
         }
 
         return true;

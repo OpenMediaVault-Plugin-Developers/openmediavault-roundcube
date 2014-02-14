@@ -5,7 +5,7 @@
  | program/localization/index.inc                                        |
  |                                                                       |
  | This file is part of the Roundcube Webmail client                     |
- | Copyright (C) 2005-2012, The Roundcube Dev Team                       |
+ | Copyright (C) 2005-2014, The Roundcube Dev Team                       |
  |                                                                       |
  | Licensed under the GNU General Public License version 3 or            |
  | any later version with exceptions for skins & plugins.                |
@@ -26,7 +26,8 @@
 
 $rcube_languages = array(
   'sq_AL' => 'Albanian (Shqip)',
-  'ar_SA' => 'Arabic (العربية)',
+  'ar'    => 'Arabic (العربية)',
+  'ar_SA' => 'Arabic (Saudi Arabia)',
   'hy_AM' => 'Armenian (Հայերեն)',
   'ast'	  => 'Asturiana (Asturianu)',
   'az_AZ' => 'Azerbaijani (Azərbaycanca)',
@@ -51,6 +52,7 @@ $rcube_languages = array(
   'en_US' => 'English (US)',
   'eo'    => 'Esperanto',
   'et_EE' => 'Estonian (Eesti)',
+  'fo_FO' => 'Faroese (Føroyskt)',
   'fi_FI' => 'Finnish (Suomi)',
   'nl_BE' => 'Flemish (Vlaams)',
   'fr_FR' => 'French (Français)',
@@ -96,6 +98,7 @@ $rcube_languages = array(
   'es_419' => 'Spanish (Latin America)',
   'sv_SE' => 'Swedish (Svenska)',
   'ta_IN' => 'Tamil (தமிழ்)',
+  'ti'    => 'Tigrinya (ትግርኛ)',
   'th_TH' => 'Thai (ไทย)',
   'tr_TR' => 'Turkish (Türkçe)',
   'uk_UA' => 'Ukrainian (Українська)',
@@ -107,7 +110,6 @@ $rcube_languages = array(
 
 $rcube_language_aliases = array(
   'am' => 'hy_AM',
-  'ar' => 'ar_SA',
   'az' => 'az_AZ',
   'bg' => 'bg_BG',
   'bs' => 'bs_BA',
@@ -137,6 +139,7 @@ $rcube_language_aliases = array(
   'kr' => 'ko_KR',
   'kh' => 'km_KH',
   'kh_KH' => 'km_KH',
+  'kn' => 'kn_IN',
   'km' => 'km_KH',
   'lb' => 'lb_LU',
   'ne' => 'ne_NP',

@@ -69,7 +69,7 @@
 	font-size: 11px;
 	width: 20px;
 	height: 18px;
-	background: url('images/listicons.png') 0 -1157px no-repeat;
+	background: url(images/listicons.png?v=017c.29530) 0 -1157px no-repeat;
 	text-indent: 1000px;
 	overflow: hidden;
 }
@@ -82,7 +82,7 @@
 #settings-sections span.listitem a,
 #settings-sections span.tablink a {
 	padding-left: 36px;
-	background-image: url(images/listicons.png);
+	background-image: url(images/listicons.png?v=017c.29530);
 	background-position: -100px 0;
 	background-repeat: no-repeat;
 }

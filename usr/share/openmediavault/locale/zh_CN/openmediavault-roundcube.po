@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# dezi121 <by@songming.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-22 11:31-0600\n"
-"PO-Revision-Date: 2013-12-22 17:32+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2013-12-31 11:44-0600\n"
+"PO-Revision-Date: 2013-12-23 04:40+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault-roundcube/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Are you sure you want to install the Roundcube database?"
-msgstr ""
+msgstr "确定要安装 Roundcube 数据库吗？"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "确认"
 
 msgid "DES Key"
-msgstr ""
+msgstr "DES Key"
 
 msgid "Database Name"
-msgstr ""
+msgstr "数据库名称"
 
 msgid "Database Settings"
-msgstr ""
+msgstr "数据库设置"
 
 msgid "Default Host"
-msgstr ""
+msgstr "默认主机"
 
 msgid "Default Host:  ssl://imap.gmail.com:993"
-msgstr ""
+msgstr "默认主机: ssl://imap.gmail.com:993"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Examples:"
-msgstr ""
+msgstr "例如："
 
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 msgid "Gmail:"
-msgstr ""
+msgstr "Gmail:"
 
 msgid "Hostname"
-msgstr ""
+msgstr "主机名"
 
 msgid ""
 "If required. Use %p as the password and Roundcube will use the current "
@@ -64,61 +65,61 @@ msgid ""
 msgstr ""
 
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 msgid "Install DB"
-msgstr ""
+msgstr "安装 DB"
 
 msgid "Installing Roundcube database"
-msgstr ""
+msgstr "安装 Roundcube 数据库中"
 
 msgid "Launch webmail site"
-msgstr ""
+msgstr "运行 webmail 网站"
 
 msgid "MySQL root Password"
-msgstr ""
+msgstr "MySQL root 账户密码"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Product Name"
-msgstr ""
+msgstr "产品名"
 
 msgid "Random key created at installation.  Must be 24 characters long."
-msgstr ""
+msgstr "安装时创建随机密码，密码必须是 24 个字符的长度。"
 
 msgid "Roundcube"
-msgstr ""
+msgstr "Roundcube"
 
 msgid "SMTP Password"
-msgstr ""
+msgstr "SMTP 密码"
 
 msgid "SMTP Password:  %p"
-msgstr ""
+msgstr "SMTP 密码 : %p"
 
 msgid "SMTP Port"
-msgstr ""
+msgstr "SMTP 端口"
 
 msgid "SMTP Port:  465"
-msgstr ""
+msgstr "SMTP 端口 : 465"
 
 msgid "SMTP Server"
-msgstr ""
+msgstr "SMTP 服务器"
 
 msgid "SMTP Server:  tls://smtp.gmail.com"
-msgstr ""
+msgstr "SMTP 服务器 : tls://smtp.gmail.com"
 
 msgid "SMTP User"
-msgstr ""
+msgstr "SMTP 用户"
 
 msgid "SMTP User:  %u"
-msgstr ""
+msgstr "SMTP 用户 : %u"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Show tab containing webmail frame."
-msgstr ""
+msgstr "标签页显示 webmail 页面"
 
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
@@ -129,10 +130,10 @@ msgid "Used only for installing Roundcube database and will not be saved."
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "用户名"
 
 msgid "Webmail"
-msgstr ""
+msgstr "Webmail"
 
 msgid "Webmail site"
-msgstr ""
+msgstr "Webmail 网站"

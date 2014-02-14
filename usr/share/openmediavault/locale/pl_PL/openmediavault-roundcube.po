@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-22 11:31-0600\n"
-"PO-Revision-Date: 2013-12-22 17:32+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"POT-Creation-Date: 2013-12-31 11:44-0600\n"
+"PO-Revision-Date: 2013-12-23 13:49+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-roundcube/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Are you sure you want to install the Roundcube database?"
-msgstr ""
+msgstr "Czy na pewno chcesz zainstalować bazę danych Roundcube?"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Potwierdzenie"
 
 msgid "DES Key"
-msgstr ""
+msgstr "Klucz DES"
 
 msgid "Database Name"
-msgstr ""
+msgstr "Nazwa bazy"
 
 msgid "Database Settings"
-msgstr ""
+msgstr "Ustawienia bazy danych"
 
 msgid "Default Host"
-msgstr ""
+msgstr "Domyślny host"
 
 msgid "Default Host:  ssl://imap.gmail.com:993"
-msgstr ""
+msgstr "Domyślny Host:  ssl://imap.gmail.com:993"
 
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 msgid "Examples:"
-msgstr ""
+msgstr "Przykłady:"
 
 msgid "General settings"
-msgstr ""
+msgstr "Ustawienia główne"
 
 msgid "Gmail:"
-msgstr ""
+msgstr "Gmail:"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Nazwa hosta"
 
 msgid ""
 "If required. Use %p as the password and Roundcube will use the current "
@@ -64,58 +65,58 @@ msgid ""
 msgstr ""
 
 msgid "Information"
-msgstr ""
+msgstr "Informacje"
 
 msgid "Install DB"
-msgstr ""
+msgstr "Instaluj DB"
 
 msgid "Installing Roundcube database"
-msgstr ""
+msgstr "Instaluje bazę Roundcube"
 
 msgid "Launch webmail site"
-msgstr ""
+msgstr "Przejdź do Roundcube"
 
 msgid "MySQL root Password"
-msgstr ""
+msgstr "Hasło root-a MySQL"
 
 msgid "Password"
-msgstr ""
+msgstr "Hasło"
 
 msgid "Product Name"
-msgstr ""
+msgstr "Nazwa"
 
 msgid "Random key created at installation.  Must be 24 characters long."
 msgstr ""
 
 msgid "Roundcube"
-msgstr ""
+msgstr "Roundcube"
 
 msgid "SMTP Password"
-msgstr ""
+msgstr "Hasło SMTP"
 
 msgid "SMTP Password:  %p"
-msgstr ""
+msgstr "Hasło SMTP: %p"
 
 msgid "SMTP Port"
-msgstr ""
+msgstr "Port SMTP"
 
 msgid "SMTP Port:  465"
-msgstr ""
+msgstr "Port SMTP:  465"
 
 msgid "SMTP Server"
-msgstr ""
+msgstr "Serwer SMTP"
 
 msgid "SMTP Server:  tls://smtp.gmail.com"
-msgstr ""
+msgstr "Serwer SMTP:  tls://smtp.gmail.com"
 
 msgid "SMTP User"
-msgstr ""
+msgstr "Użytkownik SMTP"
 
 msgid "SMTP User:  %u"
-msgstr ""
+msgstr "Użytkownik SMTP: %u"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "Show tab containing webmail frame."
 msgstr ""
@@ -129,10 +130,10 @@ msgid "Used only for installing Roundcube database and will not be saved."
 msgstr ""
 
 msgid "Username"
-msgstr ""
+msgstr "Nazwa użytkownika"
 
 msgid "Webmail"
-msgstr ""
+msgstr "Webmail"
 
 msgid "Webmail site"
-msgstr ""
+msgstr "Strona webmail"

@@ -23,7 +23,7 @@
   padding: 0;
   margin: 0 5px;
   overflow: hidden;
-  background: url(images/abook_toolbar.png) 0 0 no-repeat transparent;
+  background: url(images/abook_toolbar.png?v=025d.15594) 0 0 no-repeat transparent;
   opacity: 0.99; /* this is needed to make buttons appear correctly in Chrome */
 }
 
@@ -176,7 +176,7 @@
   height: 16px;
   text-decoration: none;
   white-space: nowrap;
-  background: url(images/icons/folders.png) 5px -108px no-repeat;
+  background: url(images/icons/folders.png?v=d9d2.5356) 5px -108px no-repeat;
 }
 
 #directorylist li ul li a

@@ -93,7 +93,7 @@ input.button
   font-size: 12px;
   padding-left: 8px;
   padding-right: 8px;
-  background: url(images/buttons/bg.gif) repeat-x #f0f0f0;
+  background: url(images/buttons/bg.gif?v=30b2.196) repeat-x #f0f0f0;
   border: 1px solid #a4a4a4;
 }
 
@@ -182,7 +182,7 @@ body > #logo
   right: 0px;
   height: 24px;
   left: 250px;
-  background: url(images/taskbar.png) top right no-repeat;
+  background: url(images/taskbar.png?v=3878.1902) top right no-repeat;
   padding: 10px 6px 5px 0px;
   text-align: right;
   white-space: nowrap;
@@ -195,7 +195,7 @@ body > #logo
   color: #666666;
   text-decoration: none;
   padding: 6px 12px 6px 26px;
-  background: url(images/taskicons.gif) no-repeat;
+  background: url(images/taskicons.gif?v=b8e0.1519) no-repeat;
 }
 
 #taskbar a:hover
@@ -246,7 +246,7 @@ body > #message div.notice,
 body > #messagebody .part-notice,
 #message-objects div.notice
 {
-  background: url(images/display/icons.png) 6px 3px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px 3px no-repeat;
   background-color: #F7FDCB;
   border: 1px solid #C2D071;
 }
@@ -256,7 +256,7 @@ body > #message div.warning,
 #message-objects div.warning,
 #message-objects div.error
 {
-  background: url(images/display/icons.png) 6px -97px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px -97px no-repeat;
   background-color: #EF9398;
   border: 1px solid #DC5757;
 }
@@ -264,7 +264,7 @@ body > #message div.warning,
 body > #message div.confirmation,
 #message-objects div.confirmation
 {
-  background: url(images/display/icons.png) 6px -47px no-repeat;
+  background: url(images/display/icons.png?v=e866.4201) 6px -47px no-repeat;
   background-color: #A6EF7B;
   border: 1px solid #76C83F;
 }
@@ -272,7 +272,7 @@ body > #message div.confirmation,
 body > #message div.loading,
 #message-objects div.loading
 {
-  background: url(images/display/loading.gif) 6px 3px no-repeat;
+  background: url(images/display/loading.gif?v=9bae.2710) 6px 3px no-repeat;
   background-color: #EBEBEB;
   border: 1px solid #CCCCCC;
 }
@@ -309,7 +309,7 @@ body.extwin #closelink
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxtitle .rightalign
@@ -358,7 +358,7 @@ body.iframe .boxtitle
   overflow: hidden;
   height: 22px;
   border-bottom: 1px solid #999;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxfooter
@@ -370,7 +370,7 @@ body.iframe .boxtitle
   overflow: hidden;
   height: 22px;
   border-top: 1px solid #999;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
 }
 
 .boxfooter a.button,
@@ -383,7 +383,7 @@ body.iframe .boxtitle
   padding: 0px;
   margin: 0;
   overflow: hidden;
-  background: url(images/icons/groupactions.png) 0 0 no-repeat transparent;
+  background: url(images/icons/groupactions.png?v=ace6.1092) 0 0 no-repeat transparent;
   opacity: 0.99; /* this is needed to make buttons appear correctly in Chrome */
 }
 
@@ -420,7 +420,7 @@ body.iframe .boxtitle
   margin: 1px;
   margin-top: 2px;
   overflow: hidden;
-  background: url(images/pagenav.gif) 0 0 no-repeat transparent;
+  background: url(images/pagenav.gif?v=2e75.355) 0 0 no-repeat transparent;
   opacity: 0.99; /* this is needed to make buttons appear correctly in Chrome */
 }
 
@@ -462,7 +462,7 @@ body.iframe .boxtitle
   -moz-user-select: none;
   -khtml-user-select: none;
   position: absolute;
-  background: url(images/dimple.png) center no-repeat;
+  background: url(images/dimple.png?v=42a0.158) center no-repeat;
 }
 
 .splitter-h
@@ -554,7 +554,7 @@ body.iframe .boxtitle
 
 .popupmenu.selectable li a.selected
 {
-  background: url(images/messageicons.png) 2px -372px no-repeat;
+  background: url(images/messageicons.png?v=9df0.3673) 2px -372px no-repeat;
 }
 
 .popupmenu.selectable li a
@@ -576,13 +576,13 @@ body.iframe .boxtitle
 
 .dropbutton:hover
 {
-/*  background: url(images/dbutton.png) 0 0 no-repeat transparent; */
+/*  background: url(images/dbutton.png?v=7bba.240) 0 0 no-repeat transparent; */
 }
 
 .dropbutton span
 {
   width: 9px;
-  background: url(images/dbutton.png) -53px 0 no-repeat transparent;
+  background: url(images/dbutton.png?v=7bba.240) -53px 0 no-repeat transparent;
 }
 
 .dropbutton span:hover
@@ -606,7 +606,7 @@ table.records-table thead tr td
   vertical-align: middle;
   border-bottom: 1px solid #999999;
   color: #333333;
-  background: url(images/listheader.gif) top left repeat-x #CCC;
+  background: url(images/listheader.gif?v=ab42.314) top left repeat-x #CCC;
   font-size: 11px;
   font-weight: bold;
 }
@@ -661,12 +661,12 @@ ul.treelist li div.treetoggle
 
 ul.treelist li div.collapsed
 {
-  background: url(images/icons/collapsed.png) bottom right no-repeat;
+  background: url(images/icons/collapsed.png?v=45aa.97) bottom right no-repeat;
 }
 
 ul.treelist li div.expanded
 {
-  background: url(images/icons/expanded.png) bottom right no-repeat;
+  background: url(images/icons/expanded.png?v=f647.107) bottom right no-repeat;
 }
 
 
@@ -680,7 +680,7 @@ ul.treelist li div.expanded
   width: 190px;
   height: 20px;
   text-align: right;
-  background: url(images/searchfield.gif) top left no-repeat;
+  background: url(images/searchfield.gif?v=aaf8.313) top left no-repeat;
 }
 
 #searchreset
@@ -776,7 +776,7 @@ ul.treelist li div.expanded
   content: " ";
   width: 14px;
   height: 14px;
-  background: url(images/messageactions.png) -2px -128px no-repeat;
+  background: url(images/messageactions.png?v=d93e.3223) -2px -128px no-repeat;
 }
 
 a.rcmContactAddress
@@ -974,7 +974,7 @@ ul.toolbarmenu li.separator_above
 
 #folder-selector li a span
 {
-  background: url(images/icons/folders.png) no-repeat 6px 0;
+  background: url(images/icons/folders.png?v=d9d2.5356) no-repeat 6px 0;
   display: block;
   height: 15px;
   min-height: 14px;
@@ -1044,7 +1044,7 @@ span.tablink-selected
   height: 23px !important;
   height: 22px;
   overflow: hidden;
-  background: url(images/tabs-left.gif) top left no-repeat;
+  background: url(images/tabs-left.gif?v=0541.219) top left no-repeat;
 }
 
 span.tablink
@@ -1071,7 +1071,7 @@ span.tablink-selected a
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;
-  background: url(images/tabs-right.gif) top right no-repeat;
+  background: url(images/tabs-right.gif?v=5414.733) top right no-repeat;
 }
 
 span.tablink-selected a
@@ -1107,9 +1107,9 @@ fieldset.tabbed
   cursor: default;
 }
 .quota_bg { background-color: white; }
-.quota_high { background: url(images/quota-colors.png) repeat-x 0 -28px #f90509; }
-.quota_mid { background: url(images/quota-colors.png) repeat-x 0 -14px #e3e909; }
-.quota_low { background: url(images/quota-colors.png) repeat-x 0 0px #05f905; }
+.quota_high { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 -28px #f90509; }
+.quota_mid { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 -14px #e3e909; }
+.quota_low { background: url(images/quota-colors.png?v=c1e9.287) repeat-x 0 0px #05f905; }
 .quota_text_high { color: white; }
 .quota_text_mid { color: #666; }
 .quota_text_low { color: #666; }

@@ -73,6 +73,10 @@ $config['syslog_id'] = 'roundcube';
 // For possible values see installer or http://php.net/manual/en/function.openlog.php
 $config['syslog_facility'] = LOG_USER;
 
+// Activate this option if logs should be written to per-user directories.
+// Data will only be logged if a directry <log_dir>/<username>/ exists and is writable.
+$config['per_user_logging'] = false;
+
 // Log sent messages to <log_dir>/sendmail or to syslog
 $config['smtp_log'] = true;
 
@@ -230,6 +234,19 @@ $config['smtp_helo_host'] = '';
 // Note: There's a known issue where using ssl connection with
 // timeout > 0 causes connection errors (https://bugs.php.net/bug.php?id=54511)
 $config['smtp_timeout'] = 0;
+
+// SMTP socket context options
+// See http://php.net/manual/en/context.ssl.php
+// The example below enables server certificate validation, and
+// requires 'smtp_timeout' to be non zero.
+// $config['smtp_conn_options'] = array(
+//   'ssl'         => array(
+//     'verify_peer'     => true,
+//     'verify_depth     => 3,
+//     'cafile'          => '/etc/openssl/certs/ca.crt',
+//   ),
+// );
+$config['smtp_conn_options'] = null;
 
 // ----------------------------------
 // LDAP

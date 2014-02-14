@@ -1,6 +1,28 @@
 CHANGELOG Roundcube Webmail
 ===========================
 
+RELEASE 1.0-rc
+--------------
+- Small CSS fix with message notice boxes in Larry skin (#1489497)
+- Include groups in contacts search on mail compose (#1489082)
+- Add mime-type mapping for .7z files (#1489512)
+- Invoke update scripts with php to circumvent execution restrictions (#1489322)
+- Fix drag & drop message/contact moving on touch device (#1489431)
+- Fix canned responses in HTML mode (#1489536)
+- Check/create default folders on every login not only the first (#1489423)
+- Update to jQuery-1.11.0 and jQuery-UI-1.9.2
+- Support SMTP socket context options via new config option 'smtp_conn_options'
+- Fix compatibility with PHP 5.2 in html.php file (#1489514)
+- Remove expand/collapse with plus/minus keys (on numeric keypad) (#1489513)
+- Fix issue where filesystem path was added to all-attachments (zip) file (#1489507)
+- Fix case-sensitivity of email addresses handling on compose (#1485499)
+- Don't alter Message-ID of a draft when sending (#1489409)
+- Fix issue where deprecated syntax for HTML lists was not handled properly (#1488768)
+- Display different icons when Trash folder is empty or full (#1485775)
+- Remember last position of more headers switch (#1488323)
+- Fix so message flags modified by another client are applied on the list on refresh (#1485186)
+- Fix broken text/* attachments when forwarding/editing a message (#1489426)
+- Improved minified files handling, added css minification (#1486988)
 - Fix handling of X-Forwarded-For header with multiple addresses (#1489481)
 - Fix border issue on folders list in classic skin (#1489473)
 - Implemented menu actions to copy/move messages, added folder-selector widget (#1484086)

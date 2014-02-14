@@ -554,7 +554,7 @@ class rcube_ldap extends rcube_addressbook
         }
         else {
             $prop    = $this->group_id ? $this->group_data : $this->prop;
-            $base_dn = $this->group_id ? $this->group_base_dn : $this->base_dn;
+            $base_dn = $this->group_id ? $prop['base_dn'] : $this->base_dn;
 
             // use global search filter
             if (!empty($this->filter))
@@ -1618,11 +1618,12 @@ class rcube_ldap extends rcube_addressbook
         // special case: list groups from 'group_filters' config
         if ($vlv_page === null && !empty($this->prop['group_filters'])) {
             $groups = array();
+            $rcube  = rcube::get_instance();
 
             // list regular groups configuration as special filter
             if (!empty($this->prop['groups']['filter'])) {
                 $id = '__groups__';
-                $groups[$id] = array('ID' => $id, 'name' => rcube_label('groups'), 'virtual' => true) + $this->prop['groups'];
+                $groups[$id] = array('ID' => $id, 'name' => $rcube->gettext('groups'), 'virtual' => true) + $this->prop['groups'];
             }
 
             foreach ($this->prop['group_filters'] as $id => $prop) {
