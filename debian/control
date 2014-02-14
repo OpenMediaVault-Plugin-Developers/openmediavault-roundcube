@@ -2,16 +2,16 @@ Source: openmediavault-roundcube
 Section: net
 Priority: optional
 Maintainer: OpenMediaVault Plugin Developers <plugins@omv-extras.org>
-Build-Depends: debhelper (>> 7)
-Standards-Version: 3.6.10
+Build-Depends: debhelper (>= 9.0.0)
+Standards-Version: 3.9.3
 
 Package: openmediavault-roundcube
 Architecture: all
-Depends: ${misc:Depends}, openmediavault (>= 0.5), openmediavault (<< 0.6), 
- openmediavault-mysql (>= 0.5)
+Depends: ${misc:Depends}, openmediavault (>= 0.6)
+ openmediavault-mysql (>= 0.6)
 Priority: optional
 Description: OpenMediaVault Roundcube (webmail) plugin
  Roundcube webmail is a browser-based multilingual IMAP client with an
- application-like user interface. It provides full functionality you 
- expect from an email client, including MIME support, address book, 
+ application-like user interface. It provides full functionality you
+ expect from an email client, including MIME support, address book,
  folder manipulation, message searching and spell checking.
