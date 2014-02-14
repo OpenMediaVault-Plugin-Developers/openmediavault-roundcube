@@ -7,8 +7,7 @@ Standards-Version: 3.9.3
 
 Package: openmediavault-roundcube
 Architecture: all
-Depends: ${misc:Depends}, openmediavault (>= 0.6)
- openmediavault-mysql (>= 0.6)
+Depends: ${misc:Depends}, openmediavault (>= 0.6), openmediavault-mysql (>= 0.6)
 Priority: optional
 Description: OpenMediaVault Roundcube (webmail) plugin
  Roundcube webmail is a browser-based multilingual IMAP client with an
