@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-31 11:44-0600\n"
-"PO-Revision-Date: 2013-12-23 13:49+0000\n"
+"PO-Revision-Date: 2014-02-04 11:53+0000\n"
 "Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault-roundcube/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -57,12 +57,12 @@ msgstr "Nazwa hosta"
 msgid ""
 "If required. Use %p as the password and Roundcube will use the current "
 "user's password for login."
-msgstr ""
+msgstr "Jeśli jest to wymagane. Wykorzystanie %p jako hasło i Roundcube użyje bieżące hasło użytkownika do logowania."
 
 msgid ""
 "If required. Use %u as the username and Roundcube will use the current "
 "username for login."
-msgstr ""
+msgstr "Jeśli jest to wymagane. Wykorzystanie %u jako użytkownika i Roundcube użyje bieżącego uzytkownika użytkownika do logowania."
 
 msgid "Information"
 msgstr "Informacje"
@@ -86,7 +86,7 @@ msgid "Product Name"
 msgstr "Nazwa"
 
 msgid "Random key created at installation.  Must be 24 characters long."
-msgstr ""
+msgstr "Losowy klucz utworzony podczas instalacji. Musi mieć 24 znaków."
 
 msgid "Roundcube"
 msgstr "Roundcube"
@@ -119,15 +119,15 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 msgid "Show tab containing webmail frame."
-msgstr ""
+msgstr "Pokaż w zakładce"
 
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
 " login."
-msgstr ""
+msgstr "Hosta poczty wybrany do wykonania dziennika logów. Pozostaw puste, aby pokazać się w polu logowania."
 
 msgid "Used only for installing Roundcube database and will not be saved."
-msgstr ""
+msgstr "Używane tylko do instalacji bazy danych Roundcube. Nie zostanie zapisane."
 
 msgid "Username"
 msgstr "Nazwa użytkownika"

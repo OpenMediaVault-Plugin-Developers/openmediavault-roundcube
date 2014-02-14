@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-roundcube\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-31 11:44-0600\n"
+"PO-Revision-Date: 2014-02-14 00:28+0000\n"
+"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault-roundcube/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Are you sure you want to install the Roundcube database?"
+msgstr "Roundcubeデータベースをインストールしますか？"
+
+msgid "Confirmation"
+msgstr "確認"
+
+msgid "DES Key"
+msgstr "DESキー"
+
+msgid "Database Name"
+msgstr "データベース名"
+
+msgid "Database Settings"
+msgstr "データベース設定"
+
+msgid "Default Host"
+msgstr "デフォルトホスト"
+
+msgid "Default Host:  ssl://imap.gmail.com:993"
+msgstr "デフォルトホスト：ssl://imap.gmail.com:993"
+
+msgid "Enable"
+msgstr "有効"
+
+msgid "Examples:"
+msgstr "例："
+
+msgid "General settings"
+msgstr "一般設定"
+
+msgid "Gmail:"
+msgstr "Gmail:"
+
+msgid "Hostname"
+msgstr "ホスト名"
+
+msgid ""
+"If required. Use %p as the password and Roundcube will use the current "
+"user's password for login."
+msgstr "必要に応じて。パスワードとして %p を使用し、Roundcubeは、ログインのために現在のユーザーのパスワードを使用します。"
+
+msgid ""
+"If required. Use %u as the username and Roundcube will use the current "
+"username for login."
+msgstr "必要に応じて。ユーザー名として %p を使用し、Roundcubeは、ログインのために現在のユーザー名を使用します。"
+
+msgid "Information"
+msgstr "情報"
+
+msgid "Install DB"
+msgstr "DBのインストール"
+
+msgid "Installing Roundcube database"
+msgstr "Roundcubeのデータベースをインストールしています"
+
+msgid "Launch webmail site"
+msgstr "ウェブメールサイトの起動"
+
+msgid "MySQL root Password"
+msgstr "MySQL root パスワード"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Product Name"
+msgstr "プロダクト名"
+
+msgid "Random key created at installation.  Must be 24 characters long."
+msgstr "インストール時に生成されるランダムキー。24文字の長さが必要です。"
+
+msgid "Roundcube"
+msgstr "Roundcube"
+
+msgid "SMTP Password"
+msgstr "SMTPパスワード"
+
+msgid "SMTP Password:  %p"
+msgstr "SMTPパスワード:  %p"
+
+msgid "SMTP Port"
+msgstr "SMTPポート"
+
+msgid "SMTP Port:  465"
+msgstr "SMTPポート:  465"
+
+msgid "SMTP Server"
+msgstr "SMTPサーバ"
+
+msgid "SMTP Server:  tls://smtp.gmail.com"
+msgstr "SMTPサーバ:  tls://smtp.gmail.com"
+
+msgid "SMTP User"
+msgstr "SMTPユーザー"
+
+msgid "SMTP User:  %u"
+msgstr "SMTPユーザー:  %u"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Show tab containing webmail frame."
+msgstr "ウェブメールフレームを含むタブを表示します。"
+
+msgid ""
+"The mail host chosen to perform the log-in. Leave blank to show a textbox at"
+" login."
+msgstr "ログインを行うために選択したメールホスト。ログイン時にテキストボックスを表示するには、空白のままにしておきます。"
+
+msgid "Used only for installing Roundcube database and will not be saved."
+msgstr "Roundcubeデータベースをインストールするためにのみ使用され、保存されることはありません。"
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Webmail"
+msgstr "ウェブメール"
+
+msgid "Webmail site"
+msgstr "ウェブメールサイト"

@@ -3,137 +3,137 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2014
+# JanN <omv@eingeord.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-31 11:44-0600\n"
-"PO-Revision-Date: 2014-01-13 14:08+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault-roundcube/language/da/)\n"
+"PO-Revision-Date: 2014-01-26 22:19+0000\n"
+"Last-Translator: JanN <omv@eingeord.net>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault-roundcube/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Are you sure you want to install the Roundcube database?"
-msgstr "Er du sikker på, at du vil installer Roundcube databasen?"
+msgstr "Sind Sie sicher, dass Sie die Roundcube-Datenbank installieren wollen?"
 
 msgid "Confirmation"
-msgstr "Bekræftelse"
+msgstr "Bestätigung"
 
 msgid "DES Key"
-msgstr "DES Nøgle"
+msgstr "DES-Schlüssel"
 
 msgid "Database Name"
-msgstr "Database Navn"
+msgstr "Datenbankname"
 
 msgid "Database Settings"
-msgstr "Database Indstillinger"
+msgstr "Datenbank-Einstellungen"
 
 msgid "Default Host"
-msgstr "Standard Vært"
+msgstr "Voreingestellter Host"
 
 msgid "Default Host:  ssl://imap.gmail.com:993"
-msgstr "Standard Vært:  ssl://imap.gmail.com:993"
+msgstr "Voreingestellter Host: ssl://imap.gmail.com:993"
 
 msgid "Enable"
-msgstr "Aktiver"
+msgstr "aktivieren"
 
 msgid "Examples:"
-msgstr "Eksempler:"
+msgstr "Beispiele:"
 
 msgid "General settings"
-msgstr "Generelle indstillinger"
+msgstr "Allgemeine Einstellungen"
 
 msgid "Gmail:"
 msgstr "Gmail:"
 
 msgid "Hostname"
-msgstr "Værtsnavn"
+msgstr "Hostname"
 
 msgid ""
 "If required. Use %p as the password and Roundcube will use the current "
 "user's password for login."
-msgstr "Hvis krævet. Brug %p som adgangskoden og Roundcube vil bruge den nuværende brugers adgangskode til log ind."
+msgstr "Falls benötigt. Wenn Sie %p als Passwort eintragen wird Roundcube für den Login das Passwort des gegenwärtig angemeldeten Benutzers verwenden. "
 
 msgid ""
 "If required. Use %u as the username and Roundcube will use the current "
 "username for login."
-msgstr "Hvis krævet. Brug %u som brugernavnet og Roundcube vil bruge det nuværende brugernavn til log ind."
+msgstr "Falls benötigt. Wenn Sie %u als Benutzername eintragen wird Roundcube für den Login den Benutzernamen des gegenwärtig angemeldeten Benutzers verwenden. "
 
 msgid "Information"
-msgstr "Oplysninger"
+msgstr "Informationen"
 
 msgid "Install DB"
-msgstr "Installer DB"
+msgstr "Datenbank installieren"
 
 msgid "Installing Roundcube database"
-msgstr "Installer Roundcube database"
+msgstr "Installiere Roundcube-Datenbank"
 
 msgid "Launch webmail site"
-msgstr "Start webmail side"
+msgstr "Webmail-Site starten"
 
 msgid "MySQL root Password"
-msgstr "MySQL rod Adgangskode"
+msgstr "MySQL Root-Passwort"
 
 msgid "Password"
-msgstr "Adgangskode"
+msgstr "Passwort"
 
 msgid "Product Name"
-msgstr "Produkt Navn"
+msgstr "Produktname"
 
 msgid "Random key created at installation.  Must be 24 characters long."
-msgstr "Tilfældig nøgle oprettet ved installation. Skal være 24 karakter lang."
+msgstr "Bei der Installation generierter Zufallsschlüssel. Muss eine Länge von 24 Zeichen haben."
 
 msgid "Roundcube"
-msgstr "Roundcube"
+msgstr "Rundwürfel ;-)"
 
 msgid "SMTP Password"
-msgstr "SMTP Adgangskode"
+msgstr "SMTP-Passwort"
 
 msgid "SMTP Password:  %p"
-msgstr "SMTP Adgangskode: %p"
+msgstr "SMTP-Passwort: %p"
 
 msgid "SMTP Port"
-msgstr "SMTP Port"
+msgstr "SMTP-Port"
 
 msgid "SMTP Port:  465"
-msgstr "SMTP Port:  465"
+msgstr "SMTP-Port: 465"
 
 msgid "SMTP Server"
-msgstr "SMTP Server"
+msgstr "SMTP-Server"
 
 msgid "SMTP Server:  tls://smtp.gmail.com"
-msgstr "SMTP Server:  tls://smtp.gmail.com"
+msgstr "SMTP-Server: tls://smtp.gmail.com"
 
 msgid "SMTP User"
-msgstr "SMTP Bruger"
+msgstr "SMTP-Benutzername"
 
 msgid "SMTP User:  %u"
-msgstr "SMTP Bruger: %u"
+msgstr "SMTP-Benutzername: %u"
 
 msgid "Settings"
-msgstr "Indstillinger"
+msgstr "Einstellungen"
 
 msgid "Show tab containing webmail frame."
-msgstr "Vis fane indeholdende webmail ramme."
+msgstr "Tab mit Webmail-Frame anzeigen."
 
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
 " login."
-msgstr "Mail værten valgt til at udføre log ind. Efterlad blank for, at få vist en tekstboks ved log ind."
+msgstr "Für den Login ausgewählter Mail-Host. Freilassen um beim Login eine Eingabemaske angezeigt zu bekommen.  "
 
 msgid "Used only for installing Roundcube database and will not be saved."
-msgstr "Kun brugt til at installer Roundcube database og vil ikke blive gemt."
+msgstr "Wird nur zur Installation der Roundcube-Datenbank genutzt und nicht gespeichert."
 
 msgid "Username"
-msgstr "Brugernavn"
+msgstr "Benutzername"
 
 msgid "Webmail"
 msgstr "Webmail"
 
 msgid "Webmail site"
-msgstr "Webmail side"
+msgstr "Webmail-Site"
