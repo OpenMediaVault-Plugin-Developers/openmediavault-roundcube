@@ -1,6 +1,21 @@
 CHANGELOG Roundcube Webmail
 ===========================
 
+RELEASE 1.0.0
+-------------
+- Fix style of disabled protocol handler link on IE (#1489569)
+- Fix message import dialog when no file is selected (#1489685)
+- Fix opening compose screen in new window after saving as draft (#1489643)
+- Added toolbar button to move message in message view
+- Fix directories check in Installer on Windows (#1489576)
+- Fix issue when default_addressbook option is set to integer value (#1489407)
+- Fix Opera > 15 detection (#1489562)
+- Fix security issue in DomainFactory driver of Password plugin
+- Fix invalid X-Draft-Info on forwarded message draft (#1489587)
+- Fix regression in handling of 'attachments' result in message_compose hook (#1489627)
+- Fix issue where msgexport.sh printed the message to STDOUT instead of a file (#1489634)
+- Fix fatal error in database_attachments plugin under some conditions (#1489726)
+
 RELEASE 1.0-rc
 --------------
 - Small CSS fix with message notice boxes in Larry skin (#1489497)

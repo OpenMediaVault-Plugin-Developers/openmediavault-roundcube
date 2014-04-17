@@ -19,8 +19,9 @@
 $labels['sharing'] = 'Sharing';
 $labels['myrights'] = 'Access Rights';
 $labels['username'] = 'User:';
-$labels['advanced'] = 'advanced mode';
+$labels['advanced'] = 'Advanced mode';
 $labels['newuser'] = 'Add entry';
+$labels['editperms'] = 'Edit permissions';
 $labels['actions'] = 'Access right actions...';
 $labels['anyone'] = 'All users (anyone)';
 $labels['anonymous'] = 'Guests (anonymous)';
@@ -39,6 +40,7 @@ $labels['aclt'] = 'Delete messages';
 $labels['acle'] = 'Expunge';
 $labels['aclx'] = 'Delete folder';
 $labels['acla'] = 'Administer';
+$labels['acln'] = 'Annotate messages';
 
 $labels['aclfull'] = 'Full control';
 $labels['aclother'] = 'Other';
@@ -59,6 +61,7 @@ $labels['shortaclt'] = 'Delete';
 $labels['shortacle'] = 'Expunge';
 $labels['shortaclx'] = 'Folder delete';
 $labels['shortacla'] = 'Administer';
+$labels['shortacln'] = 'Annotate';
 
 $labels['shortaclother'] = 'Other';
 $labels['shortaclread'] = 'Read';
@@ -78,6 +81,7 @@ $labels['longaclt'] = 'Messages Delete flag can be changed';
 $labels['longacle'] = 'Messages can be expunged';
 $labels['longaclx'] = 'The folder can be deleted or renamed';
 $labels['longacla'] = 'The folder access rights can be changed';
+$labels['longacln'] = 'Messages shared metadata (annotations) can be changed';
 
 $labels['longaclfull'] = 'Full control including folder administration';
 $labels['longaclread'] = 'The folder can be opened for reading';

@@ -66,6 +66,9 @@ case "$1" in
     chmod 777 -R "${ROUNDCUBE_TEMP}"
     chmod 777 -R "${ROUNDCUBE_LOGS}"
 
+    dpkg-trigger update-fixperms
+    dpkg-trigger update-locale
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

@@ -29,11 +29,11 @@ class rcube_domainfactory_password
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_URL => 'https://ssl.df.eu/chmail.php',
 				CURLOPT_POST => true,
-				CURLOPT_POSTFIELDS => array(
+				CURLOPT_POSTFIELDS => http_build_query(array(
 					'login' => $rcmail->user->get_username(),
 					'pwd' => $curpass,
 					'action' => 'change'
-				)
+				))
 			));
 
 			if ($result = curl_exec($ch)) {
@@ -51,7 +51,7 @@ class rcube_domainfactory_password
 
 				// change password
 				$ch = curl_copy_handle($ch);
-				curl_setopt($ch, CURLOPT_POSTFIELDS, $postfields);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
 				if ($result = curl_exec($ch)) {
 
 					// has the password been changed?

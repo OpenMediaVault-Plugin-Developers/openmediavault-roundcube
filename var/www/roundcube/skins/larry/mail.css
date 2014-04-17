@@ -441,7 +441,7 @@ a.iconbutton.threadmode.selected {
 	right: 4px;
 	width: 20px;
 	height: 18px;
-	background: url(images/buttons.png?v=3b60.38715) -3px -458px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -3px -458px no-repeat;
 }
 
 #mailpreviewtoggle.enabled {
@@ -903,7 +903,7 @@ h3.subject {
 	left: 0;
 	width: 18px;
 	height: 16px;
-	background: url(images/buttons.png?v=3b60.38715) -27px -242px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -27px -242px no-repeat;
 }
 
 .moreheaderstoggle.remove .iconlink {
@@ -923,7 +923,7 @@ div.more-headers {
 	width: 12px;
 	height: 10px;
 	cursor: pointer;
-	background: url(images/buttons.png?v=3b60.38715) center -1579px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) center -1579px no-repeat;
 }
 
 div.hide-headers {
@@ -1452,7 +1452,6 @@ div.message-partheaders .headers-table td.header {
 	-o-box-shadow: inset 0 1px 0 0 #fff;
 	-webkit-box-shadow: inset 0 1px 0 0 #fff;
 	-moz-box-shadow: inset 0 1px 0 0 #fff;
-
 }
 
 .composeoption {

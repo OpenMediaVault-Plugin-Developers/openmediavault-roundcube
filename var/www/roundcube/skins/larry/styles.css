@@ -331,7 +331,7 @@ input.button:active {
 	height: 13px;
 	text-indent: 1000px;
 	overflow: hidden;
-	background: url(images/buttons.png?v=3b60.38715) -6px -211px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -6px -211px no-repeat;
 }
 
 .pagenav a.prevpage span.inner {
@@ -402,7 +402,7 @@ a.iconbutton {
 	height: 18px;
 	text-decoration: none;
 	text-indent: -5000px;
-	background: url(images/buttons.png?v=3b60.38715) -1000px 0 no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -1000px 0 no-repeat;
 }
 
 a.iconbutton.disabled {
@@ -429,7 +429,7 @@ a.iconlink {
 	text-decoration: none;
 	white-space: nowrap;
 	padding: 2px 8px 2px 20px;
-	background: url(images/buttons.png?v=3b60.38715) -1000px 0 no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -1000px 0 no-repeat;
 }
 
 a.iconlink:hover {
@@ -739,7 +739,7 @@ a.iconlink.upload {
 #topline a.button-logout {
 	display: inline-block;
 	padding: 2px 10px 2px 20px;
-	background: url(images/buttons.png?v=3b60.38715) -6px -193px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -6px -193px no-repeat;
 	color: #fff;
 }
 
@@ -896,7 +896,7 @@ a.iconlink.upload {
 	text-shadow: 0px 1px 1px black;
 	padding: 5px 0 0 34px;
 	height: 19px;
-	background: url(images/buttons.png?v=3b60.38715) -1000px 0 no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -1000px 0 no-repeat;
 }
 
 #taskbar a.button-selected {
@@ -948,7 +948,7 @@ a.iconlink.upload {
 	width: 19px;
 	height: 46px;
 	cursor: pointer;
-	background: url(images/buttons.png?v=3b60.38715) -35px -1778px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -35px -1778px no-repeat;
 }
 
 .minimal #taskbar .minmodetoggle {
@@ -1235,7 +1235,7 @@ ul.treelist li.selected > div.expanded {
 	width: 48px;
 	height: 35px;
 	text-indent: -5000px;
-	background: url(images/buttons.png?v=3b60.38715) -1000px 0 no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -1000px 0 no-repeat;
 }
 
 .boxfooter .listbutton.add .inner {
@@ -1299,7 +1299,7 @@ ul.treelist li.selected > div.expanded {
 	text-indent: 1000px;
 	vertical-align: bottom;
 	overflow: hidden;
-	background: url(images/buttons.png?v=3b60.38715) -4px -286px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -4px -286px no-repeat;
 }
 
 .boxpagenav a.icon.prevpage {
@@ -1424,7 +1424,7 @@ table.records-table {
 
 .records-table tr.unfocused td {
 	color: #fff !important;
-	background: #4db0d2 !important;
+	background-color: #4db0d2 !important;
 }
 
 .records-table tr.unfocused td a,
@@ -1562,6 +1562,12 @@ body.iframe .footerleft.floating:before,
 .propform div.prop.block input,
 .propform div.prop.block textarea {
 	width: 95%;
+}
+
+.propform a.disabled {
+	color: #999;
+	text-decoration: none;
+	cursor: default;
 }
 
 fieldset.floating {
@@ -1803,7 +1809,7 @@ ul.proplist li {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	-o-box-shadow: none;
-	background: url(images/buttons.png?v=3b60.38715) -100px 0 no-repeat transparent;
+	background: url(images/buttons.png?v=3e15.39327) -100px 0 no-repeat transparent;
 	border: 0;
 	border-radius: 0;
 }
@@ -1825,7 +1831,7 @@ ul.proplist li {
 	top: 0;
 	height: 42px;
 	width: 18px;
-	background: url(images/buttons.png?v=3b60.38715) 0 -1255px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) 0 -1255px no-repeat;
 	cursor: pointer;
 }
 
@@ -1893,6 +1899,10 @@ ul.proplist li {
 
 .toolbar a.button.markmessage {
 	background-position: center -1094px;
+}
+
+.toolbar a.button.move {
+	background-position: center -1971px;
 }
 
 .toolbar a.button.more {
@@ -2333,11 +2343,15 @@ ul.toolbarmenu li span.copy {
 	content: " ";
 	width: 16px;
 	height: 16px;
-	background: url(images/buttons.png?v=3b60.38715) -7px -358px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -7px -358px no-repeat;
 	z-index: 255;
 }
 
 /*** folder selector ***/
+
+#folder-selector {
+	z-index: 1000;
+}
 
 #folder-selector li a span {
 	background: url(images/listicons.png?v=017c.29530) 4px -2021px no-repeat;
@@ -2502,7 +2516,7 @@ ul.toolbarmenu li span.copy {
 }
 
 .attachmentslist li a.drop {
-	background: url(images/buttons.png?v=3b60.38715) no-repeat scroll center -1570px;
+	background: url(images/buttons.png?v=3e15.39327) no-repeat scroll center -1570px;
 	width: 14px;
 	height: 20px;
 	cursor: pointer;
@@ -2534,7 +2548,7 @@ ul.toolbarmenu li span.copy {
 	padding: 0;
 	text-decoration: none;
 	text-indent: -5000px;
-	background: url(images/buttons.png?v=3b60.38715) -7px -337px no-repeat;
+	background: url(images/buttons.png?v=3e15.39327) -7px -337px no-repeat;
 }
 
 .attachmentslist li a.cancelupload {

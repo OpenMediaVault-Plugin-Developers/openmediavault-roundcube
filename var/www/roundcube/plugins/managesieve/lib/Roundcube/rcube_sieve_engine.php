@@ -24,21 +24,21 @@
 
 class rcube_sieve_engine
 {
-    private $rc;
-    private $sieve;
-    private $errors;
-    private $form;
-    private $tips = array();
-    private $script = array();
-    private $exts = array();
-    private $list;
-    private $active = array();
-    private $headers = array(
+    protected $rc;
+    protected $sieve;
+    protected $errors;
+    protected $form;
+    protected $tips = array();
+    protected $script = array();
+    protected $exts = array();
+    protected $list;
+    protected $active = array();
+    protected $headers = array(
         'subject' => 'Subject',
         'from'    => 'From',
         'to'      => 'To',
     );
-    private $addr_headers = array(
+    protected $addr_headers = array(
         // Required
         "from", "to", "cc", "bcc", "sender", "resent-from", "resent-to",
         // Additional (RFC 822 / RFC 2822)
@@ -53,7 +53,7 @@ class rcube_sieve_engine
         "x-beenthere",
     );
 
-    const VERSION  = '7.1';
+    const VERSION  = '8.0';
     const PROGNAME = 'Roundcube (Managesieve)';
     const PORT     = 4190;
 
@@ -70,7 +70,7 @@ class rcube_sieve_engine
     /**
      * Loads configuration, initializes plugin (including sieve connection)
      */
-    function start()
+    function start($mode = null)
     {
         // register UI objects
         $this->rc->output->add_handlers(array(
@@ -137,13 +137,16 @@ class rcube_sieve_engine
                 $this->rc->session->remove('managesieve_current');
             }
 
-            if (!empty($_GET['_set']) || !empty($_POST['_set'])) {
-                $script_name = rcube_utils::get_input_value('_set', rcube_utils::INPUT_GPC, true);
+            if ($mode != 'vacation') {
+                if (!empty($_GET['_set']) || !empty($_POST['_set'])) {
+                    $script_name = rcube_utils::get_input_value('_set', rcube_utils::INPUT_GPC, true);
+                }
+                else if (!empty($_SESSION['managesieve_current'])) {
+                    $script_name = $_SESSION['managesieve_current'];
+                }
             }
-            else if (!empty($_SESSION['managesieve_current'])) {
-                $script_name = $_SESSION['managesieve_current'];
-            }
-            else {
+
+            if ($script_name === null || $script_name === '') {
                 // get (first) active script
                 if (!empty($this->active[0])) {
                     $script_name = $this->active[0];
@@ -980,7 +983,7 @@ class rcube_sieve_engine
             }
 
             if (!$this->errors && !$error) {
-                // zapis skryptu
+                // save the script
                 if (!isset($this->script[$fid])) {
                     $fid = $this->sieve->script->add_rule($this->form);
                     $new = true;
@@ -1016,7 +1019,7 @@ class rcube_sieve_engine
         $this->send();
     }
 
-    private function send()
+    protected function send()
     {
         // Handle form action
         if (isset($_GET['_framed']) || isset($_POST['_framed'])) {
@@ -1026,7 +1029,8 @@ class rcube_sieve_engine
             else {
                 $this->rc->output->send('managesieve.filteredit');
             }
-        } else {
+        }
+        else {
             $this->rc->output->set_pagetitle($this->plugin->gettext('filters'));
             $this->rc->output->send('managesieve.managesieve');
         }
@@ -1642,11 +1646,12 @@ class rcube_sieve_engine
             $domain_select = new html_select(array('name' => "_action_target_domain[$id]", 'id' => 'action_target_domain'.$id));
             $domain_select->add(array_combine($domains, $domains));
 
-            $parts = explode('@', $action['target']);
-
-            if (!empty($parts)) {
-                $action['domain'] = array_pop($parts);
-                $action['target'] = implode('@', $parts);
+            if ($action['type'] == 'redirect') {
+                $parts = explode('@', $action['target']);
+                if (!empty($parts)) {
+                    $action['domain'] = array_pop($parts);
+                    $action['target'] = implode('@', $parts);
+                }
             }
         }
 
@@ -1788,7 +1793,7 @@ class rcube_sieve_engine
             'maxlength' => 100,
             'id' => 'action_mailbox' . $id,
             'name' => "_action_mailbox[$id]",
-            'style' => 'display:'.(!isset($action) || $action['type']=='fileinto' ? 'inline' : 'none')
+            'style' => 'display:'.(empty($action['type']) || $action['type'] == 'fileinto' ? 'inline' : 'none')
         ));
         $out .= $select->show($mailbox);
         $out .= '</td>';
@@ -1808,12 +1813,12 @@ class rcube_sieve_engine
         return $out;
     }
 
-    private function genid()
+    protected function genid()
     {
         return preg_replace('/[^0-9]/', '', microtime(true));
     }
 
-    private function strip_value($str, $allow_html = false, $trim = true)
+    protected function strip_value($str, $allow_html = false, $trim = true)
     {
         if (is_array($str)) {
             foreach ($str as $idx => $val) {
@@ -1834,7 +1839,7 @@ class rcube_sieve_engine
         return $trim ? trim($str) : $str;
     }
 
-    private function error_class($id, $type, $target, $elem_prefix='')
+    protected function error_class($id, $type, $target, $elem_prefix='')
     {
         // TODO: tooltips
         if (($type == 'test' && ($str = $this->errors['tests'][$id][$target])) ||
@@ -1847,7 +1852,7 @@ class rcube_sieve_engine
         return '';
     }
 
-    private function add_tip($id, $str, $error=false)
+    protected function add_tip($id, $str, $error=false)
     {
         if ($error)
             $str = html::span('sieve error', $str);
@@ -1855,7 +1860,7 @@ class rcube_sieve_engine
         $this->tips[] = array($id, $str);
     }
 
-    private function print_tips()
+    protected function print_tips()
     {
         if (empty($this->tips))
             return;
@@ -1864,7 +1869,7 @@ class rcube_sieve_engine
         $this->rc->output->add_script($script, 'foot');
     }
 
-    private function list_input($id, $name, $value, $enabled, $class, $size=null)
+    protected function list_input($id, $name, $value, $enabled, $class, $size=null)
     {
         $value = (array) $value;
         $value = array_map(array('rcube', 'Q'), $value);
@@ -1880,7 +1885,7 @@ class rcube_sieve_engine
     /**
      * Validate input for date part elements
      */
-    private function validate_date_part($type, $value)
+    protected function validate_date_part($type, $value)
     {
         // we do simple validation of date/part format
         switch ($type) {
@@ -1925,7 +1930,7 @@ class rcube_sieve_engine
      *
      * @return string Mailbox name
      */
-    private function mod_mailbox($mailbox, $mode = 'out')
+    protected function mod_mailbox($mailbox, $mode = 'out')
     {
         $delimiter         = $_SESSION['imap_delimiter'];
         $replace_delimiter = $this->rc->config->get('managesieve_replace_delimiter');
@@ -2217,7 +2222,7 @@ class rcube_sieve_engine
     /**
      * Initializes internal script data
      */
-    private function init_script()
+    protected function init_script()
     {
         $this->script = $this->sieve->script->as_array();
 
