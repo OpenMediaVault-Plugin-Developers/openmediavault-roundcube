@@ -1,10 +1,10 @@
-openmediavault-roundcube (0.6.1) UNRELEASED; urgency=low
+openmediavault-roundcube (0.6.1) stable; urgency=low
 
   * Update roundcube to 1.0
   * Modify package trigger handling
   * Update locales
 
- -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 17 Apr 2014 07:04:21 -0500
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Thu, 17 Apr 2014 07:12:23 -0500
 
 openmediavault-roundcube (0.6.0) stable; urgency=low
 
