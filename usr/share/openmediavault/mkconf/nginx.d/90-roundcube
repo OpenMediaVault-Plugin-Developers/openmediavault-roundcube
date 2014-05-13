@@ -41,12 +41,7 @@ location /webmail/ {
         fastcgi_index index.php;
         include fastcgi_params;
     }
-
-    location ~ ^/(bin|SQL|config|logs)/ {
-        deny all;
-    }
-
-    location ~ /\.ht {
+    location ~ ^/roundcube/(bin|SQL|config|logs|\.ht)/ {
         deny all;
     }
 }
