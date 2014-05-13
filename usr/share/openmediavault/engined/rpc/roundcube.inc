@@ -26,6 +26,16 @@ require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
+    private function getEventMessagePath()
+    {
+        return "org.openmediavault.services.roundcube";
+    }
+
+    private function getXPath()
+    {
+        return "//services/roundcube";
+    }
+
     public function getName() {
         return "Roundcube";
     }
@@ -44,8 +54,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
 
         // Get configuration object
-        $xpath  = "//services/roundcube";
-        $object = $xmlConfig->get($xpath);
+        $object = $xmlConfig->get($this->getXPath());
         if (is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
@@ -105,13 +114,15 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         );
 
         // Set configuration object
-        if (FALSE === $xmlConfig->replace("//services/roundcube", $object))
+        if (FALSE === $xmlConfig->replace($this->getXPath(), $object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 
         // Notify general configuration changes
         $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.roundcube", $object);
+        $dispatcher->notify(
+            OMV_NOTIFY_MODIFY,
+            $this->getEventMessagePath(),
+            $object);
     }
 
     public function doInstallDB($params, $context) {
@@ -122,8 +133,8 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, '{
-            "type":"object",
-            "properties":{
+            "type"       : "object",
+            "properties" : {
                 "db_host"   : { "type" : "string" },
                 "db_name"   : { "type" : "string" },
                 "db_user"   : { "type" : "string" },
@@ -133,8 +144,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         }');
 
         // Get configuration object
-        $xpath  = "//services/roundcube";
-        $object = $xmlConfig->get($xpath);
+        $object = $xmlConfig->get($this->getXPath());
         if (is_null($object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 
@@ -159,8 +169,10 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
         // Notify general configuration changes
         $dispatcher = &OMVNotifyDispatcher::getInstance();
-        $dispatcher->notify(OMV_NOTIFY_MODIFY,
-            "org.openmediavault.services.roundcube", $object);
+        $dispatcher->notify(
+            OMV_NOTIFY_MODIFY,
+            $this->getEventMessagePath(),
+            $object);
     }
 }
 

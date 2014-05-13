@@ -24,8 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-ROUNDCUBE_SITE_CONF_NAME=openmediavault-roundcube-site
-ROUNDCUBE_SITE_ENABLED_CONF=/etc/apache2/sites-enabled/${ROUNDCUBE_SITE_CONF_NAME}
+ROUNDCUBE_SITE_ENABLED_CONF="/etc/nginx/openmediavault-webgui.d/openmediavault-roundcube-site.conf"
 
 case "$1" in
     purge)
@@ -34,9 +33,10 @@ case "$1" in
 
     remove)
         if [ -e ${ROUNDCUBE_SITE_ENABLED_CONF} ]; then
-            a2dissite ${ROUNDCUBE_SITE_CONF_NAME}
-            /etc/init.d/apache2 reload
+            rm ${ROUNDCUBE_SITE_ENABLED_CONF}
         fi
+
+        service nginx reload
     ;;
 
     upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

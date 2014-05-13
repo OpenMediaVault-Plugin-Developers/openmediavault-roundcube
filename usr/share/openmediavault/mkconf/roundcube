@@ -30,11 +30,6 @@ ROUNDCUBE_SITE_ENABLED_CONF=/etc/apache2/sites-enabled/${ROUNDCUBE_SITE_CONF_NAM
 
 # Enable/disable site
 if [ "$(omv_config_get "//services/roundcube/enable")" != "1" ]; then
-    if [ -e ${ROUNDCUBE_SITE_ENABLED_CONF} ]; then
-        a2dissite ${ROUNDCUBE_SITE_CONF_NAME}
-        /etc/init.d/apache2 reload
-    fi
-
     exit 0
 fi
 
@@ -78,6 +73,3 @@ cat <<EOF > ${ROUNDCUBE_CONFIG}
 // skin name: folder from skins/
 \$config['skin'] = 'larry';
 EOF
-
-a2ensite ${ROUNDCUBE_SITE_CONF_NAME}
-/etc/init.d/apache2 reload
