@@ -153,7 +153,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         $object['db_pass'] = $params['db_pass'];
 
         // Set configuration object
-        if (FALSE === $xmlConfig->replace($this->$xpath, $object))
+        if (FALSE === $xmlConfig->replace($this->$getXPath(), $object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 
         //create password file
