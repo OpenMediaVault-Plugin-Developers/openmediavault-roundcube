@@ -497,30 +497,18 @@ class rcmail extends rcube
         $username_domain = $this->config->get('username_domain');
         $login_lc        = $this->config->get('login_lc', 2);
 
-        if (!$host) {
-            $host = $default_host;
-        }
-
-        // Validate that selected host is in the list of configured hosts
-        if (is_array($default_host)) {
-            $allowed = false;
-
-            foreach ($default_host as $key => $host_allowed) {
-                if (!is_numeric($key)) {
-                    $host_allowed = $key;
-                }
-                if ($host == $host_allowed) {
-                    $allowed = true;
-                    break;
-                }
+        // host is validated in rcmail::autoselect_host(), so here
+        // we'll only handle unset host (if possible)
+        if (!$host && !empty($default_host)) {
+            if (is_array($default_host)) {
+                list($key, $val) = each($default_host);
+                $host = is_numeric($key) ? $val : $key;
+            }
+            else {
+                $host = $default_host;
             }
 
-            if (!$allowed) {
-                $host = null;
-            }
-        }
-        else if (!empty($default_host) && $host != rcube_utils::parse_host($default_host)) {
-            $host = null;
+            $host = rcube_utils::parse_host($host);
         }
 
         if (!$host) {
@@ -846,6 +834,9 @@ class rcmail extends rcube
 
         // write performance stats to logs/console
         if ($this->config->get('devel_mode')) {
+            // make sure logged numbers use unified format
+            setlocale(LC_NUMERIC, 'en_US.utf8', 'en_US.UTF-8', 'en_US', 'C');
+
             if (function_exists('memory_get_usage'))
                 $mem = $this->show_bytes(memory_get_usage());
             if (function_exists('memory_get_peak_usage'))
@@ -1618,9 +1609,13 @@ class rcmail extends rcube
      *
      * @return string Localized folder name in UTF-8 encoding
      */
-    public function localize_foldername($name, $with_path = true)
+    public function localize_foldername($name, $with_path = false)
     {
         $realnames = $this->config->get('show_real_foldernames');
+
+        if (!$realnames && ($folder_class = $this->folder_classname($name))) {
+            return $this->gettext($folder_class);
+        }
 
         // try to localize path of the folder
         if ($with_path && !$realnames) {
@@ -1630,7 +1625,7 @@ class rcmail extends rcube
             $count     = count($path);
 
             if ($count > 1) {
-                for ($i = 0; $i < $count; $i++) {
+                for ($i = 1; $i < $count; $i++) {
                     $folder = implode($delimiter, array_slice($path, 0, -$i));
                     if ($folder_class = $this->folder_classname($folder)) {
                         $name = implode($delimiter, array_slice($path, $count - $i));
@@ -1638,10 +1633,6 @@ class rcmail extends rcube
                     }
                 }
             }
-        }
-
-        if (!$realnames && ($folder_class = $this->folder_classname($name))) {
-            return $this->gettext($folder_class);
         }
 
         return rcube_charset::convert($name, 'UTF7-IMAP');

@@ -142,7 +142,7 @@ function rcube_webmail()
     this.task = this.env.task;
 
     // check browser
-    if (!bw.dom || !bw.xmlhttp_test() || (bw.mz && bw.vendver < 1.9)) {
+    if (this.env.server_error != 409 && (!bw.dom || !bw.xmlhttp_test() || (bw.mz && bw.vendver < 1.9))) {
       this.goto_url('error', '_code=0x199');
       return;
     }
@@ -1054,8 +1054,9 @@ function rcube_webmail()
         // Reset the auto-save timer
         clearTimeout(this.save_timer);
 
-        if (!this.upload_file(props || this.gui_objects.uploadform, 'upload')) {
-          alert(this.get_label('selectimportfile'));
+        if (!(flag = this.upload_file(props || this.gui_objects.uploadform, 'upload'))) {
+          if (flag !== false)
+            alert(this.get_label('selectimportfile'));
           aborted = true;
         }
         break;
@@ -1179,12 +1180,15 @@ function rcube_webmail()
         break;
 
       case 'import-messages':
-        var form = props || this.gui_objects.importform;
-        var importlock = this.set_busy(true, 'importwait');
+        var form = props || this.gui_objects.importform,
+          importlock = this.set_busy(true, 'importwait');
+
         $('input[name="_unlock"]', form).val(importlock);
-        if (!this.upload_file(form, 'import')) {
+
+        if (!(flag = this.upload_file(form, 'import'))) {
           this.set_busy(false, null, importlock);
-          alert(this.get_label('selectimportfile'));
+          if (flag !== false)
+            alert(this.get_label('selectimportfile'));
           aborted = true;
         }
         break;
@@ -1912,7 +1916,7 @@ function rcube_webmail()
     // add each submitted col
     for (n in this.env.coltypes) {
       c = this.env.coltypes[n];
-      col = { className: String(c).toLowerCase() };
+      col = {className: String(c).toLowerCase(), events:{}};
 
       if (c == 'flag') {
         css_class = (flags.flagged ? 'flagged' : 'unflagged');
@@ -1940,11 +1944,8 @@ function rcube_webmail()
       else if (c == 'threads')
         html = expando;
       else if (c == 'subject') {
-        if (bw.ie) {
-          col.onmouseover = function() { rcube_webmail.long_subject_title_ex(this, message.depth+1); };
-          if (bw.ie8)
-            tree = '<span></span>' + tree; // #1487821
-        }
+        if (bw.ie)
+          col.events.mouseover = function() { rcube_webmail.long_subject_title_ex(this); };
         html = tree + cols[c];
       }
       else if (c == 'priority') {
@@ -3388,17 +3389,8 @@ function rcube_webmail()
           $(tinyMCE.get(props.id).getBody()).css('font-family', rcmail.env.default_font);
         }, 500);
     }
-    else {
-      var thisMCE = tinyMCE.get(props.id), existingHtml;
-
-      if (existingHtml = thisMCE.getContent()) {
-        if (!confirm(this.get_label('editorwarning'))) {
-          return false;
-        }
-        this.html2plain(existingHtml, props.id);
-      }
+    else if (this.html2plain(tinyMCE.get(props.id).getContent(), props.id))
       tinyMCE.execCommand('mceRemoveControl', false, props.id);
-    }
 
     return true;
   };
@@ -3638,9 +3630,12 @@ function rcube_webmail()
       $("input[name='_draft_saveid']").val(id);
 
       // reset history of hidden iframe used for saving draft (#1489643)
-      if (window.frames['savetarget'] && window.frames['savetarget'].history) {
+      // but don't do this on timer-triggered draft-autosaving (#1489789)
+      if (window.frames['savetarget'] && window.frames['savetarget'].history && !this.draft_autosave_submit) {
         window.frames['savetarget'].history.back();
       }
+
+      this.draft_autosave_submit = false;
     }
 
     // always remove local copy upon saving as draft
@@ -3650,7 +3645,11 @@ function rcube_webmail()
   this.auto_save_start = function()
   {
     if (this.env.draft_autosave)
-      this.save_timer = setTimeout(function(){ ref.command("savedraft"); }, this.env.draft_autosave * 1000);
+      this.draft_autosave_submit = false;
+      this.save_timer = setTimeout(function(){
+          ref.draft_autosave_submit = true;  // set auto-saved flag (#1489789)
+          ref.command("savedraft");
+      }, this.env.draft_autosave * 1000);
 
     // save compose form content to local storage every 5 seconds
     if (!this.local_save_timer && window.localStorage) {
@@ -3969,7 +3968,7 @@ function rcube_webmail()
   this.upload_file = function(form, action)
   {
     if (!form)
-      return false;
+      return;
 
     // count files and size on capable browser
     var size = 0, numfiles = 0;
@@ -4029,8 +4028,6 @@ function rcube_webmail()
       this.gui_objects.attachmentform = form;
       return true;
     }
-
-    return false;
   };
 
   // add file name to attachment list
@@ -4052,7 +4049,7 @@ function rcube_webmail()
     li.attr('id', name)
       .addClass(att.classname)
       .html(att.html)
-      .on('mouseover', function() { rcube_webmail.long_subject_title_ex(this, 0); });
+      .on('mouseover', function() { rcube_webmail.long_subject_title_ex(this); });
 
     // replace indicator's li
     if (upload_id && (indicator = document.getElementById(upload_id))) {
@@ -4336,9 +4333,7 @@ function rcube_webmail()
     this.ksearch_input.value = pre + insert + end;
 
     // set caret to insert pos
-    cpos = p+insert.length;
-    if (this.ksearch_input.setSelectionRange)
-      this.ksearch_input.setSelectionRange(cpos, cpos);
+    this.set_caret_pos(this.ksearch_input, p + insert.length);
 
     if (trigger) {
       this.triggerEvent('autocomplete_insert', { field:this.ksearch_input, insert:insert });
@@ -6606,8 +6601,9 @@ function rcube_webmail()
 
     // fetch headers only once
     if (!this.gui_objects.all_headers_box.innerHTML) {
-      var lock = this.display_message(this.get_label('loading'), 'loading');
-      this.http_post('headers', {_uid: this.env.uid}, lock);
+      this.http_post('headers', {_uid: this.env.uid, _mbox: this.env.mailbox},
+        this.display_message(this.get_label('loading'), 'loading')
+      );
     }
   };
 
@@ -6736,6 +6732,16 @@ function rcube_webmail()
 
   this.html2plain = function(htmlText, id)
   {
+    // warn the user (if converted content is not empty)
+    if (!htmlText || !(htmlText.replace(/<[^>]+>|&nbsp;|\s/g, '')).length) {
+      // without setTimeout() here, textarea is filled with initial (onload) content
+      setTimeout(function() { $('#'+id).val(''); }, 50);
+      return true;
+    }
+
+    if (!confirm(this.get_label('editorwarning')))
+      return false;
+
     var rcmail = this,
       url = '?_task=utils&_action=html2text',
       lock = this.set_busy(true, 'converting');
@@ -6746,6 +6752,8 @@ function rcube_webmail()
       error: function(o, status, err) { rcmail.http_error(o, status, err, lock); },
       success: function(data) { rcmail.set_busy(false, null, lock); $('#'+id).val(data); rcmail.log(data); }
     });
+
+    return true;
   };
 
   this.plain2html = function(plain, id)
@@ -6792,7 +6800,7 @@ function rcube_webmail()
         param[k] = query[k];
     }
 
-    return base + '&' + $.param(param) + querystring;
+    return base + (base.indexOf('?') > -1 ? '&' : '?') + $.param(param) + querystring;
   };
 
   this.redirect = function(url, lock)
@@ -6816,7 +6824,7 @@ function rcube_webmail()
 
   this.goto_url = function(action, query, lock)
   {
-    this.redirect(this.url(action, query));
+    this.redirect(this.url(action, query), lock);
   };
 
   this.location_href = function(url, target, frame)
@@ -7676,7 +7684,7 @@ rcube_webmail.long_subject_title = function(elem, indent)
   }
 };
 
-rcube_webmail.long_subject_title_ex = function(elem, indent)
+rcube_webmail.long_subject_title_ex = function(elem)
 {
   if (!elem.title) {
     var $elem = $(elem),
@@ -7688,7 +7696,7 @@ rcube_webmail.long_subject_title_ex = function(elem, indent)
       w = tmp.width();
 
     tmp.remove();
-    if (w + indent * 15 > $elem.width())
+    if (w + $('span.branch', $elem).width() * 15 > $elem.width())
       elem.title = txt;
   }
 };
