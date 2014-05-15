@@ -28,16 +28,14 @@ require_once("openmediavault/log.inc");
 class OMVModuleRoundcube extends OMVModuleServiceAbstract
     implements OMVINotifyListener {
 
-    private function getEventMessagePath()
-    {
+    private function getEventMessagePath() {
         return "org.openmediavault.services.roundcube";
     }
-  
-    private function getXPath()
-    {
+
+    private function getXPath() {
         return "//services/roundcube";
     }
-      
+
     public function getName() {
         return "roundcube";
     }
@@ -54,9 +52,10 @@ class OMVModuleRoundcube extends OMVModuleServiceAbstract
             $this->getEventMessagePath(),
             array($this, "setDirty"));
 
+        $moduleMgr = &OMVModuleMgr::getInstance();
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
-            $this->getEventMessagePath(),
+            "org.openmediavault.webadmin",
             array($moduleMgr->getModule("webserver"), "setDirty"));
     }
 }
@@ -64,5 +63,4 @@ class OMVModuleRoundcube extends OMVModuleServiceAbstract
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleRoundcube());
-
 ?>
