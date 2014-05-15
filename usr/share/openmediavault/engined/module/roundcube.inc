@@ -55,7 +55,7 @@ class OMVModuleRoundcube extends OMVModuleServiceAbstract
         $moduleMgr = &OMVModuleMgr::getInstance();
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
-            "org.openmediavault.webadmin",
+            $this->getEventMessagePath(),
             array($moduleMgr->getModule("webserver"), "setDirty"));
     }
 }

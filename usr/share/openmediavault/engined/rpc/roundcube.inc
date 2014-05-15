@@ -26,13 +26,11 @@ require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
-    private function getEventMessagePath()
-    {
+    private function getEventMessagePath() {
         return "org.openmediavault.services.roundcube";
     }
 
-    private function getXPath()
-    {
+    private function getXPath() {
         return "//services/roundcube";
     }
 
@@ -155,7 +153,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         $object['db_pass'] = $params['db_pass'];
 
         // Set configuration object
-        if (FALSE === $xmlConfig->replace($xpath, $object))
+        if (FALSE === $xmlConfig->replace($this->$xpath, $object))
             throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 
         //create password file
