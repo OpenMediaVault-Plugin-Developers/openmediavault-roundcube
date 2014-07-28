@@ -26,41 +26,54 @@ require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
 
 class OMVModuleRoundcube extends OMVModuleServiceAbstract
-    implements OMVINotifyListener {
+    implements OMVINotifyListener
+{
 
-    private function getEventMessagePath() {
+    private function getEventMessagePath()
+    {
         return "org.openmediavault.services.roundcube";
     }
 
-    private function getXPath() {
+    private function getXPath()
+    {
         return "//services/roundcube";
     }
 
-    public function getName() {
+    public function getName()
+    {
         return "roundcube";
     }
 
-    public function applyConfig() {
+    public function applyConfig()
+    {
         $cmd = "omv-mkconf roundcube 2>&1";
-        if(0 !== $this->exec($cmd, $output))
-            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, implode("\n", $output));
+        if (0 !== $this->exec($cmd, $output))
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
     }
 
-    function bindListeners(OMVNotifyDispatcher $dispatcher) {
+    function bindListeners(OMVNotifyDispatcher $dispatcher)
+    {
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
-            array($this, "setDirty"));
+            array($this, "setDirty")
+        );
 
         $moduleMgr = &OMVModuleMgr::getInstance();
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
-            array($moduleMgr->getModule("webserver"), "setDirty"));
+            array($moduleMgr->getModule("webserver"), "setDirty")
+        );
     }
 }
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleRoundcube());
-?>

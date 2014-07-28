@@ -24,37 +24,49 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
-
-    private function getEventMessagePath() {
+class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract
+{
+    private function getEventMessagePath()
+    {
         return "org.openmediavault.services.roundcube";
     }
 
-    private function getXPath() {
+    private function getXPath()
+    {
         return "//services/roundcube";
     }
 
-    public function getName() {
+    public function getName()
+    {
         return "Roundcube";
     }
 
-    public function initialize() {
+    public function initialize()
+    {
         $this->registerMethod("getSettings");
         $this->registerMethod("setSettings");
-
         $this->registerMethod("doInstallDB");
     }
 
-    public function getSettings($params, $context) {
+    public function getSettings($params, $context)
+    {
         global $xmlConfig;
 
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+        $this->validateMethodContext(
+            $context,
+            array( "role" => OMV_ROLE_ADMINISTRATOR )
+        );
 
         // Get configuration object
         $object = $xmlConfig->get( $this->getXPath() );
         if (is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $this->getXPath() );
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath()
+            );
+        }
 
         // Modify result data
         $object['enable']    = boolval($object['enable']);
@@ -64,7 +76,8 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         return $object;
     }
 
-    public function setSettings($params, $context) {
+    public function setSettings($params, $context)
+    {
         global $xmlConfig;
 
         // Validate the RPC caller context.
@@ -92,7 +105,9 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
         // Trim des_key if longer than 24 characters
         if ( strlen($params['des_key']) > 24 )
+        {
             $params['des_key'] = substr($params['des_key'], 0, 24);
+        }
 
         // Prepare configuration data
         $object = array(
@@ -113,21 +128,30 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
         // Set configuration object
         if (FALSE === $xmlConfig->replace($this->getXPath(), $object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
+            );
+        }
 
         // Notify general configuration changes
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
-            $object);
+            $object
+        );
     }
 
-    public function doInstallDB($params, $context) {
+    public function doInstallDB($params, $context)
+    {
         global $xmlConfig;
 
         // Validate the RPC caller context.
-        $this->validateMethodContext($context, array( "role" => OMV_ROLE_ADMINISTRATOR ));
+        $this->validateMethodContext(
+            $context,
+            array( "role" => OMV_ROLE_ADMINISTRATOR )
+        );
 
         // Validate the parameters of the RPC service method.
         $this->validateMethodParams($params, '{
@@ -144,7 +168,12 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
         // Get configuration object
         $object = $xmlConfig->get($this->getXPath());
         if (is_null($object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $this->getXPath() );
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+                $this->getXPath()
+            );
+        }
 
         // Modify result data
         $object['db_host'] = $params['db_host'];
@@ -154,28 +183,37 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract {
 
         // Set configuration object
         if (FALSE === $xmlConfig->replace($this->getXPath(), $object))
-            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED
+            );
+        }
 
         //create password file
         $file = "/tmp/.openmediavault-roundcube-mysql-pwd";
         file_put_contents($file, $params['root_pass']);
 
         // install database
-        $cmd = "/usr/local/bin/create_roundcube_db 2>&1";
+        $cmd = "omv-mkconf roundcube createdb 2>&1";
         if(0 !== $this->exec($cmd, $output))
-            throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, implode("\n", $output));
+        {
+            throw new OMVException(
+                OMVErrorMsg::E_EXEC_FAILED,
+                $cmd,
+                implode("\n", $output)
+            );
+        }
 
         // Notify general configuration changes
         $dispatcher = &OMVNotifyDispatcher::getInstance();
         $dispatcher->notify(
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
-            $object);
+            $object
+        );
     }
 }
 
 // Register the RPC service.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->registerService(new OMVRpcServiceRoundcube());
-
-?>

@@ -1,4 +1,2 @@
 var/www/openmediavault/*    var/www/openmediavault
 usr/share/openmediavault/*  usr/share/openmediavault
-var/www/roundcube/*         var/www/roundcube
-usr/local/bin/*             usr/local/bin
