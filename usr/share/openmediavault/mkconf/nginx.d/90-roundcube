@@ -20,8 +20,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-INSTALL_DIR="/usr/share/roundcube"
+INSTALL_DIR="/usr/share/roundcube/"
 ROUNDCUBE_SITE_CONF="/etc/nginx/openmediavault-webgui.d/openmediavault-roundcube-site.conf"
+WEBMAIL_LOCATION="webmail"
 
 if [ -e "${ROUNDCUBE_SITE_CONF}" ]; then
     rm ${ROUNDCUBE_SITE_CONF}
@@ -32,7 +33,7 @@ if [ "$(omv_config_get "//services/roundcube/enable")" != "1" ]; then
 fi
 
 cat <<EOF > "${ROUNDCUBE_SITE_CONF}"
-location /webmail/ {
+location /${WEBMAIL_LOCATION}/ {
     alias ${INSTALL_DIR};
     index index.php;
     location ~ \.php$ {
@@ -41,25 +42,25 @@ location /webmail/ {
         fastcgi_index index.php;
         include fastcgi_params;
     }
-    location ~ ^/roundcube/(bin|SQL|config|logs|\.ht)/ {
+    location ~ ^/${WEBMAIL_LOCATION}/(bin|SQL|config|logs|\.ht)/ {
         deny all;
     }
-    location = /roundcube/favicon.ico {
+    location = /${WEBMAIL_LOCATION}/favicon.ico {
         log_not_found off;
         access_log off;
     }
-    location = /roundcube/robots.txt {
+    location = /${WEBMAIL_LOCATION}/robots.txt {
         allow all;
         log_not_found off;
         access_log off;
     }
-    location /roundcube/ {
-        try_files \$uri \$uri/ /roundcube/index.php?\$args;
+    location /${WEBMAIL_LOCATION}/ {
+        try_files \$uri \$uri/ /${WEBMAIL_LOCATION}/index.php?\$args;
     }
-    location ~ /roundcube/\. {
+    location ~ /${WEBMAIL_LOCATION}/\. {
         deny all;
     }
-    location ~* /roundcube/\.(js|css|png|jpg|jpeg|gif|ico)$ {
+    location ~* /${WEBMAIL_LOCATION}/\.(js|css|png|jpg|jpeg|gif|ico)$ {
         expires max;
         log_not_found off;
     }

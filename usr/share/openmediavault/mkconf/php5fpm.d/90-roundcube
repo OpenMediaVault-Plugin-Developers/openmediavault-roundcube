@@ -27,7 +27,7 @@ if [ -e "${ROUNDCUBE_POOL_CONF}" ]; then
     rm ${ROUNDCUBE_POOL_CONF}
 fi
 
-cat <<EOF > "${roundcube_POOL_CONF}"
+cat <<EOF > "${ROUNDCUBE_POOL_CONF}"
 [openmediavault-roundcube]
 listen = /var/run/php5-fpm-openmediavault-roundcube.sock
 listen.owner = www-data

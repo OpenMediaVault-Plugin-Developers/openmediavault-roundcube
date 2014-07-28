@@ -93,7 +93,7 @@ install()
     fi
 
     wget ${LINK} -O ${FILE}
-    tar xzf ${FILE} -C ${INSTALL_DIR}
+    tar xzf ${FILE} -C ${INSTALL_DIR} --strip 1
     rm -f ${FILE}
 
     chown -R openmediavault:openmediavault ${INSTALL_DIR}
@@ -105,7 +105,7 @@ install()
     chmod 777 -R "${ROUNDCUBE_LOGS}"
 
     rm -rf "${INSTALL_DIR}/installer"
-    rm -f "${INSTALL_DIR/INSTALL" "${INSTALL_DIR}/UPGRADING"
+    rm -f "${INSTALL_DIR}/INSTALL" "${INSTALL_DIR}/UPGRADING"
 
     service php5-fpm reload
     service nginx reload
@@ -130,7 +130,7 @@ createdb()
     CMD="create database ${DB_NAME}; grant all on ${DB_NAME}.* to ${DB_NAME}@${DB_HOST} identified by '${DB_PASS}';"
 
     mysql --user=root --password=${ROUNDCUBEROOTPW} -Bse "${CMD}"
-    mysql --user=${DB_USER} --password=${DB_PASS} -s ${DB_NAME} < /var/www/roundcube/SQL/mysql.initial.sql
+    mysql --user=${DB_USER} --password=${DB_PASS} -s ${DB_NAME} < "${INSTALL_DIR}/SQL/mysql.initial.sql"
 }
 
 case $2 in
