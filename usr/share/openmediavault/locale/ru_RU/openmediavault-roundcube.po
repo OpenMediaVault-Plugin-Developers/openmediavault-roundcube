@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Savchenko, 2014
 # артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-31 11:44-0600\n"
-"PO-Revision-Date: 2013-12-22 17:32+0000\n"
-"Last-Translator: ryecoaaron <aaron27@ryecoinc.com>\n"
+"PO-Revision-Date: 2014-06-05 12:14+0000\n"
+"Last-Translator: Alexander Savchenko\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault-roundcube/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +44,13 @@ msgid "Enable"
 msgstr "Включить"
 
 msgid "Examples:"
-msgstr ""
+msgstr "Примеры:"
 
 msgid "General settings"
 msgstr "Общие параметры"
 
 msgid "Gmail:"
-msgstr ""
+msgstr "Gmail:"
 
 msgid "Hostname"
 msgstr "Имя хоста"
@@ -65,7 +66,7 @@ msgid ""
 msgstr "Если требуется. Используйте %u в качестве имени пользователя и Roundcube будет использовать текущее имя пользователя для входа в систему."
 
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 msgid "Install DB"
 msgstr "Установить DB"
@@ -95,25 +96,25 @@ msgid "SMTP Password"
 msgstr "Пароль SMTP"
 
 msgid "SMTP Password:  %p"
-msgstr ""
+msgstr "Пароль SMTP :  %p"
 
 msgid "SMTP Port"
 msgstr "Порт SMTP"
 
 msgid "SMTP Port:  465"
-msgstr ""
+msgstr "Порт SMTP:  465"
 
 msgid "SMTP Server"
 msgstr "SMTP-сервер"
 
 msgid "SMTP Server:  tls://smtp.gmail.com"
-msgstr ""
+msgstr "Сервер SMTP:  tls://smtp.gmail.com"
 
 msgid "SMTP User"
 msgstr "SMTP Пользователь"
 
 msgid "SMTP User:  %u"
-msgstr ""
+msgstr "Пользователь SMTP:  %u"
 
 msgid "Settings"
 msgstr "Настройки"
