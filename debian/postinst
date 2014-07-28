@@ -26,48 +26,35 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-ROUNDCUBE_TEMP="/var/www/roundcube/temp"
-ROUNDCUBE_LOGS="/var/www/roundcube/logs"
+SERVICE_XPATH_NAME="roundcube"
+SERVICE_XPATH="/config/services/${SERVICE_XPATH_NAME}"
 
 case "$1" in
     configure)
 
-    if ! omv_config_exists "/config/services/roundcube"; then
-
-        DES_KEY=$(</dev/urandom tr -dc "A-Za-z0-9!@#%^*" | head -c24)
-
-        echo "Creating Initial Configuration"
-        object="<enable>0</enable>"
-        object="${object}<default_host></default_host>"
-        object="${object}<smtp_server></smtp_server>"
-        object="${object}<smtp_port></smtp_port>"
-        object="${object}<smtp_user></smtp_user>"
-        object="${object}<smtp_pass></smtp_pass>"
-        object="${object}<product_name>Roundcube Webmail</product_name>"
-        object="${object}<des_key>${DES_KEY}</des_key>"
-        object="${object}<db_host>localhost</db_host>"
-        object="${object}<db_user>roundcube</db_user>"
-        object="${object}<db_pass>openmediavault</db_pass>"
-        object="${object}<db_name>roundcube</db_name>"
-        object="${object}<showtab>0</showtab>"
-
-        omv_config_add_element "/config/services" "roundcube" "${object}" true
-    fi
-
-    chown -R openmediavault:openmediavault /var/www/roundcube
-
-    if [ ! -d "${ROUNDCUBE_TEMP}" ]; then
-        mkdir -p "${ROUNDCUBE_TEMP}"
-    fi
-    if [ ! -d "${ROUNDCUBE_LOGS}" ]; then
-        mkdir -p "${ROUNDCUBE_LOGS}"
-    fi
-
-    chmod 777 -R "${ROUNDCUBE_TEMP}"
-    chmod 777 -R "${ROUNDCUBE_LOGS}"
-
-    dpkg-trigger update-fixperms
-    dpkg-trigger update-locale
+        if ! omv_config_exists "${SERVICE_XPATH}"; then
+            DES_KEY=$(</dev/urandom tr -dc "A-Za-z0-9!@#%^*" | head -c24)
+            
+            omv_config_add_element "/config/services" "${SERVICE_XPATH_NAME}"
+            omv_config_add_element "${SERVICE_XPATH}" "enable" "0"
+            omv_config_add_element "${SERVICE_XPATH}" "default_host" ""
+            omv_config_add_element "${SERVICE_XPATH}" "smtp_server" ""
+            omv_config_add_element "${SERVICE_XPATH}" "smtp_port" ""
+            omv_config_add_element "${SERVICE_XPATH}" "smtp_user" ""
+            omv_config_add_element "${SERVICE_XPATH}" "smtp_pass" ""
+            omv_config_add_element "${SERVICE_XPATH}" "product_name" "Roundcube Webmail"
+            omv_config_add_element "${SERVICE_XPATH}" "des_key" "${DES_KEY}"
+            omv_config_add_element "${SERVICE_XPATH}" "db_host" "localhost"
+            omv_config_add_element "${SERVICE_XPATH}" "db_user" "roundcube"
+            omv_config_add_element "${SERVICE_XPATH}" "db_pass" "openmediavault"
+            omv_config_add_element "${SERVICE_XPATH}" "db_name" "roundcube"
+            omv_config_add_element "${SERVICE_XPATH}" "showtab" "0"
+        fi    
+        
+        omv-mkconf roundcube install
+        
+        dpkg-trigger update-fixperms
+        dpkg-trigger update-locale
 
     ;;
 

@@ -1,6 +1,5 @@
 #!/bin/sh
 #
-# Copyright (C) 2010-2012 Ian Moore <imooreyahoo@gmail.com>
 # Copyright (C) 2013-2014 OpenMediaVault Plugin Developers
 #
 # This file is free software: you can redistribute it and/or modify
@@ -21,30 +20,98 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-ROUNDCUBE_SITE_ENABLED_CONF="/etc/nginx/openmediavault-webgui.d/openmediavault-roundcube-site.conf"
+VERSION="1.0.2"
+FILENAME="roundcubemail-${VERSION}.tar.gz"
+LINK="https://downloads.sourceforge.net/project/roundcubemail/roundcubemail/${VERSION}/${FILENAME}"
+FILE="/tmp/${FILENAME}"
+INSTALL_DIR="/usr/share/roundcube"
 
-if [ -e "${ROUNDCUBE_SITE_ENABLED_CONF}" ]; then
-    rm ${ROUNDCUBE_SITE_ENABLED_CONF}
-fi
+ROUNDCUBE_TEMP="${INSTALL_DIR}/temp"
+ROUNDCUBE_LOGS="${INSTALL_DIR}/logs"
+ROUNDCUBE_SITE_CONF="/etc/nginx/openmediavault-webgui.d/openmediavault-roundcube-site.conf"
 
-if [ "$(omv_config_get "//services/roundcube/enable")" != "1" ]; then
-    exit 0
-fi
+update()
+{
+    if [ -e "${ROUNDCUBE_SITE_CONF}" ]; then
+        rm ${ROUNDCUBE_SITE_CONF}
+    fi
 
-cat <<EOF > "${ROUNDCUBE_SITE_ENABLED_CONF}"
+    if [ "$(omv_config_get "//services/roundcube/enable")" != "1" ]; then
+        exit 0
+    fi
+
+    cat <<EOF > "${ROUNDCUBE_SITE_CONF}"
 location /webmail/ {
-    alias /var/www/roundcube/;
+    alias ${INSTALL_DIR};
     index index.php;
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;
+        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-roundcube.sock;
         fastcgi_index index.php;
         include fastcgi_params;
     }
     location ~ ^/roundcube/(bin|SQL|config|logs|\.ht)/ {
         deny all;
     }
+    location = /roundcube/favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+    location = /roundcube/robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+    location /roundcube/ {
+        try_files \$uri \$uri/ /roundcube/index.php?\$args;
+    }
+    location ~ /roundcube/\. {
+        deny all;
+    }
+    location ~* /roundcube/\.(js|css|png|jpg|jpeg|gif|ico)$ {
+        expires max;
+        log_not_found off;
+    }
 }
-EOF
+    EOF
+}
+
+install()
+{
+    mkdir -p ${INSTALL_DIR}
+
+    if [ -f "${FILE}" ]; then
+        rm -f ${FILE}
+    fi
+
+    wget ${LINK} -O ${FILE}
+    tar xzf ${FILE} -C ${INSTALL_DIR}
+    rm -f ${FILE}
+
+    chown -R openmediavault:openmediavault ${INSTALL_DIR}
+
+    mkdir -p "${ROUNDCUBE_TEMP}"
+    mkdir -p "${ROUNDCUBE_LOGS}"
+
+    chmod 777 -R "${ROUNDCUBE_TEMP}"
+    chmod 777 -R "${ROUNDCUBE_LOGS}"
+
+    rm -rf "${INSTALL_DIR}/installer"
+    rm -f "${INSTALL_DIR/INSTALL" "${INSTALL_DIR}/UPGRADING"
+
+    service php5-fpm reload
+    service nginx reload
+}
+
+case $2 in
+    install)
+        install
+        update
+    ;;
+
+    *)
+        update
+    ;;
+esac
 
 exit 0

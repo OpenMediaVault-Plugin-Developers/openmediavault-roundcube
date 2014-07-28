@@ -1,3 +1,11 @@
+openmediavault-roundcube (1.0) stable; urgency=low
+
+  * Download roundcube
+  * Update roundcube to 1.0.2
+  * Update locales
+
+ -- OpenMediaVault Plugin Developers <plugins@omv-extras.org>  Mon, 28 Jul 2014 07:07:18 -0500
+
 openmediavault-roundcube (0.6.2) stable; urgency=low
 
   * Update for nginx

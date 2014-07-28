@@ -24,11 +24,13 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+INSTALL_DIR="/usr/share/roundcube"
 ROUNDCUBE_SITE_ENABLED_CONF="/etc/nginx/openmediavault-webgui.d/openmediavault-roundcube-site.conf"
 
 case "$1" in
     purge)
         omv_config_delete "//services/roundcube"
+        rm -rf ${INSTALL_DIR}
     ;;
 
     remove)
@@ -36,6 +38,7 @@ case "$1" in
             rm ${ROUNDCUBE_SITE_ENABLED_CONF}
         fi
 
+        service php5-fpm reload
         service nginx reload
     ;;
 
