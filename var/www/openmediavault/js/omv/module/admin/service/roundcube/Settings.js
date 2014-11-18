@@ -29,15 +29,6 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
         ptype        : "linkedfields",
         correlations : [{
             name       : [
-                "launch-webmail-site"
-            ],
-            conditions : [{
-                name  : "enable",
-                value : true
-            }],
-            properties : "enabled"
-        },{
-            name       : [
                 "installdb"
             ],
             conditions : [{
@@ -45,6 +36,13 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
                 value : false
             }],
             properties : "!disabled"
+        },{
+            conditions  : [
+                { name : "enable", value : true }
+            ],
+            properties : function(valid, field) {
+                this.setButtonDisabled("webmail", !valid);
+            }
         }]
     }],
 
@@ -73,6 +71,24 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
     rpcService   : "Roundcube",
     rpcGetMethod : "getSettings",
     rpcSetMethod : "setSettings",
+
+    getButtonItems : function() {
+        var me = this;
+        var items = me.callParent(arguments);
+        items.push({
+            id       : me.getId() + "-webmail",
+            xtype    : "button",
+            text     : _("Open Webmail"),
+            icon     : "images/roundcube.png",
+            iconCls  : Ext.baseCSSPrefix + "btn-icon-16x16",
+            disabled : true,
+            scope    : me,
+            handler  : function() {
+                window.open("/webmail/", "_blank");
+            }
+        });
+        return items;
+    },
 
     getFormItems : function() {
         return [{
@@ -139,6 +155,12 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
                     ptype : "fieldinfo",
                     text  : _("Random key created at installation.  Must be 24 characters long.")
                 }]
+            },{
+                xtype      : "checkbox",
+                name       : "showtab",
+                fieldLabel : _("Show Tab"),
+                boxLabel   : _("Show tab containing webmail frame."),
+                checked    : false
             }]
         },{
             xtype    : "fieldset",
@@ -175,9 +197,6 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
                     ptype : "fieldinfo",
                     text  : _("Used only for installing Roundcube database and will not be saved.")
                 }]
-            },{
-                border : false,
-                html   : "<br />"
             },{
                 xtype   : "button",
                 name    : "installdb",
@@ -216,34 +235,8 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
                         scope : me,
                         icon  : Ext.Msg.QUESTION
                     });
-                }
-            },{
-                border : false,
-                html   : "<br />"
-            }]
-        },{
-            xtype    : "fieldset",
-            title    : _("Webmail site"),
-            defaults : {
-                labelSeparator : ""
-            },
-            items : [{
-                xtype      : "checkbox",
-                name       : "showtab",
-                fieldLabel : _("Enable"),
-                boxLabel   : _("Show tab containing webmail frame."),
-                checked    : false
-            },{
-                xtype      : "button",
-                name       : "launch-webmail-site",
-                text       : _("Launch webmail site"),
-                disabled   : true,
-                handler    : function() {
-                    window.open("/webmail/");
-                }
-            },{
-                border: false,
-                html: "<br />"
+                },
+                margin  : "5 0 8 0"
             }]
         }];
     }
