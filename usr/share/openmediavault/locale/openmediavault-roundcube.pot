@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-31 11:44-0600\n"
+"POT-Creation-Date: 2014-11-18 09:17-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,10 +68,10 @@ msgstr ""
 msgid "Installing Roundcube database"
 msgstr ""
 
-msgid "Launch webmail site"
+msgid "MySQL root Password"
 msgstr ""
 
-msgid "MySQL root Password"
+msgid "Open Webmail"
 msgstr ""
 
 msgid "Password"
@@ -113,6 +113,9 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+msgid "Show Tab"
+msgstr ""
+
 msgid "Show tab containing webmail frame."
 msgstr ""
 
@@ -126,7 +129,4 @@ msgid "Username"
 msgstr ""
 
 msgid "Webmail"
-msgstr ""
-
-msgid "Webmail site"
 msgstr ""
