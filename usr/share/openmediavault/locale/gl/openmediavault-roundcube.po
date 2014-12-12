@@ -3,137 +3,136 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-18 09:17-0600\n"
-"PO-Revision-Date: 2014-11-20 20:41+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
-"Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault-roundcube/language/es_ES/)\n"
+"PO-Revision-Date: 2013-12-18 15:57+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault-roundcube/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
+"Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Are you sure you want to install the Roundcube database?"
-msgstr "¿Esta seguro de que desea instalar la Base de Datos de Roundcube?"
+msgstr ""
 
 msgid "Confirmation"
-msgstr "Confirmación"
+msgstr ""
 
 msgid "DES Key"
-msgstr "DES Key"
+msgstr ""
 
 msgid "Database Name"
-msgstr "Nombre de la Base de datos"
+msgstr ""
 
 msgid "Database Settings"
-msgstr "Opciones de la BBDD"
+msgstr ""
 
 msgid "Default Host"
-msgstr "Host por defecto"
+msgstr ""
 
 msgid "Default Host:  ssl://imap.gmail.com:993"
-msgstr "Host por defecto:  ssl://imap.gmail.com:993"
+msgstr ""
 
 msgid "Enable"
-msgstr "Habilitar"
+msgstr ""
 
 msgid "Examples:"
-msgstr "Ejemplos:"
+msgstr ""
 
 msgid "General settings"
-msgstr "Opciones"
+msgstr ""
 
 msgid "Gmail:"
-msgstr "Gmail:"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Hostname"
+msgstr ""
 
 msgid ""
 "If required. Use %p as the password and Roundcube will use the current "
 "user's password for login."
-msgstr "Si fuese necesario. Usar %p como contraseña y Roundcube usará la actual contraseña de usuario como contraseña de login."
+msgstr ""
 
 msgid ""
 "If required. Use %u as the username and Roundcube will use the current "
 "username for login."
-msgstr "Si fuese necesario. Usar %u como nombre de usuario y Roundcube usará el actual usuario de OMV como login."
+msgstr ""
 
 msgid "Information"
-msgstr "Información"
+msgstr ""
 
 msgid "Install DB"
-msgstr "Instalar BBDD"
+msgstr ""
 
 msgid "Installing Roundcube database"
-msgstr "Instalando BBDD de Roundcube"
+msgstr ""
 
 msgid "MySQL root Password"
-msgstr "Contraseña de root de MySQL"
+msgstr ""
 
 msgid "Open Webmail"
-msgstr "Abrir WebMail"
+msgstr ""
 
 msgid "Password"
-msgstr "Contraseña"
+msgstr ""
 
 msgid "Product Name"
-msgstr "Nombre del prducto"
+msgstr ""
 
 msgid "Random key created at installation.  Must be 24 characters long."
-msgstr "Clave aleatoria creada durante la instalación. debe ser de 24 caracteres."
+msgstr ""
 
 msgid "Roundcube"
-msgstr "Roundcube"
+msgstr ""
 
 msgid "SMTP Password"
-msgstr "Contraseña SMTP"
+msgstr ""
 
 msgid "SMTP Password:  %p"
-msgstr "Contraseña SMTP:  %p"
+msgstr ""
 
 msgid "SMTP Port"
-msgstr "Puerto SMTP"
+msgstr ""
 
 msgid "SMTP Port:  465"
-msgstr "Puerto SMTP:  465"
+msgstr ""
 
 msgid "SMTP Server"
-msgstr "Servidor SMTP"
+msgstr ""
 
 msgid "SMTP Server:  tls://smtp.gmail.com"
-msgstr "Servidor SMTP:  tls://smtp.gmail.com"
+msgstr ""
 
 msgid "SMTP User"
-msgstr "Usuario SMTP"
+msgstr ""
 
 msgid "SMTP User:  %u"
-msgstr "Usuario SMTP:  %u"
+msgstr ""
 
 msgid "Settings"
-msgstr "Opciones"
+msgstr ""
 
 msgid "Show Tab"
-msgstr "Mostrar pestaña"
+msgstr ""
 
 msgid "Show tab containing webmail frame."
-msgstr "Mostar en una pestaña webmail Roundcube"
+msgstr ""
 
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
 " login."
-msgstr "El host de correo elegido para realizar log-in. Dejar en blanco para mostrar una ventana de texto"
+msgstr ""
 
 msgid "Used only for installing Roundcube database and will not be saved."
-msgstr "Se usará solo para la instalación de Roundcube y no se salvará."
+msgstr ""
 
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr ""
 
 msgid "Webmail"
-msgstr "Webmail"
+msgstr ""
