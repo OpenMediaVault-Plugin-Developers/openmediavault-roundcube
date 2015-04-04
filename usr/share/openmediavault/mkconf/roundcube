@@ -4,7 +4,7 @@
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
 # @copyright Copyright (c) 2009-2013 Volker Theile
-# @copyright Copyright (c) 2013-2014 OpenMediaVault Plugin Developers
+# @copyright Copyright (c) 2013-2015 OpenMediaVault Plugin Developers
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,7 +25,8 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 
-VERSION="1.0.3"
+VERSION="1.1.1"
+VERSION="1.1.1"
 FILENAME="roundcubemail-${VERSION}.tar.gz"
 LINK="https://downloads.sourceforge.net/project/roundcubemail/roundcubemail/${VERSION}/${FILENAME}"
 FILE="/tmp/${FILENAME}"

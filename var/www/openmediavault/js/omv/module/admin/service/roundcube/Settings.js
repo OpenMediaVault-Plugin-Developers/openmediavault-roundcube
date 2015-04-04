@@ -3,7 +3,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    OpenMediaVault Plugin Developers <plugins@omv-extras.org>
  * @copyright Copyright (c) 2009-2013 Volker Theile
- * @copyright Copyright (c) 2013-2014 OpenMediaVault Plugin Developers
+ * @copyright Copyright (c) 2013-2015 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,28 +45,6 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
             }
         }]
     }],
-
-    initComponent : function () {
-        var me = this;
-
-        me.on('load', function () {
-            var checked = me.findField('enable').checked;
-            var showtab = me.findField('showtab').checked;
-            var parent = me.up('tabpanel');
-
-            if (!parent)
-                return;
-
-            var webmailPanel = parent.down('panel[title=' + _("Webmail") + ']');
-
-            if (webmailPanel) {
-                checked ? webmailPanel.enable() : webmailPanel.disable();
-                showtab ? webmailPanel.tab.show() : webmailPanel.tab.hide();
-            }
-        });
-
-        me.callParent(arguments);
-    },
 
     rpcService   : "Roundcube",
     rpcGetMethod : "getSettings",
@@ -155,12 +133,6 @@ Ext.define("OMV.module.admin.service.roundcube.Settings", {
                     ptype : "fieldinfo",
                     text  : _("Random key created at installation.  Must be 24 characters long.")
                 }]
-            },{
-                xtype      : "checkbox",
-                name       : "showtab",
-                fieldLabel : _("Show Tab"),
-                boxLabel   : _("Show tab containing webmail frame."),
-                checked    : false
             }]
         },{
             xtype    : "fieldset",

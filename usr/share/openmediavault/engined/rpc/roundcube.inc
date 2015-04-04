@@ -2,7 +2,7 @@
 /**
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (C) 2009-2013 Volker Theile
- * @copyright Copyright (C) 2013-2014 OpenMediaVault Plugin Developers
+ * @copyright Copyright (C) 2013-2015 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -71,7 +71,6 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract
         // Modify result data
         $object['enable']    = boolval($object['enable']);
         $object['smtp_port'] = intval($object['smtp_port']);
-        $object['showtab']   = boolval($object['showtab']);
 
         return $object;
     }
@@ -98,8 +97,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract
                 "db_user"      : { "type" : "string" },
                 "db_pass"      : { "type" : "string" },
                 "db_name"      : { "type" : "string" },
-                "root_pass"    : { "type" : "string", "optional" : true },
-                "showtab"      : { "type" : "boolean" }
+                "root_pass"    : { "type" : "string", "optional" : true }
             }
         }');
 
@@ -122,8 +120,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract
             'db_host'      => $params['db_host'],
             'db_user'      => $params['db_user'],
             'db_pass'      => $params['db_pass'],
-            'db_name'      => $params['db_name'],
-            'showtab'      => array_boolval($params, 'showtab')
+            'db_name'      => $params['db_name']
         );
 
         // Set configuration object
@@ -192,6 +189,7 @@ class OMVRpcServiceRoundcube extends OMVRpcServiceAbstract
         //create password file
         $file = "/tmp/.openmediavault-roundcube-mysql-pwd";
         file_put_contents($file, $params['root_pass']);
+        chmod($file, 0600);
 
         // install database
         $cmd = "omv-mkconf roundcube createdb 2>&1";

@@ -3,7 +3,7 @@
  *
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @copyright Copyright (C) 2009-2013 Volker Theile
- * @copyright Copyright (C) 2013-2014 OpenMediaVault Plugin Developers
+ * @copyright Copyright (C) 2013-2015 OpenMediaVault Plugin Developers
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,6 +66,12 @@ class OMVModuleRoundcube extends OMVModuleServiceAbstract
         );
 
         $moduleMgr = &OMVModuleMgr::getInstance();
+        $dispatcher->addListener(
+            OMV_NOTIFY_MODIFY,
+            $this->getEventMessagePath(),
+            array($moduleMgr->getModule("php5fpm"), "setDirty")
+        );
+
         $dispatcher->addListener(
             OMV_NOTIFY_MODIFY,
             $this->getEventMessagePath(),
