@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-31 11:44-0600\n"
-"PO-Revision-Date: 2013-12-22 23:02+0000\n"
-"Last-Translator: yahoe.001\n"
+"POT-Creation-Date: 2015-04-04 10:52-0500\n"
+"PO-Revision-Date: 2015-04-04 15:52+0000\n"
+"Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/openmediavault-roundcube/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,11 +73,11 @@ msgstr "Installer la BD"
 msgid "Installing Roundcube database"
 msgstr "Installation de la base de données Roundcube en cours"
 
-msgid "Launch webmail site"
-msgstr "Lancer le site de courriel Web"
-
 msgid "MySQL root Password"
 msgstr "Mot de passe root de MySQL"
+
+msgid "Open Webmail"
+msgstr ""
 
 msgid "Password"
 msgstr "Mot de passe"
@@ -118,9 +118,6 @@ msgstr "Utilisateur SMTP :  %u"
 msgid "Settings"
 msgstr "Paramètres"
 
-msgid "Show tab containing webmail frame."
-msgstr "Afficher l'onglet contenant le cadre du courriel Web"
-
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
 " login."
@@ -131,9 +128,3 @@ msgstr "Utilisé seulement pour installer la base de données Roundcube et ne se
 
 msgid "Username"
 msgstr "Nom d'utilisateur"
-
-msgid "Webmail"
-msgstr "Courriel Web"
-
-msgid "Webmail site"
-msgstr "Site de courriel Web"

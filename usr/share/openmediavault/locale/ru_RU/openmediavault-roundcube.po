@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 09:17-0600\n"
-"PO-Revision-Date: 2014-11-18 15:18+0000\n"
+"POT-Creation-Date: 2015-04-04 10:52-0500\n"
+"PO-Revision-Date: 2015-04-04 15:52+0000\n"
 "Last-Translator: Aaron Murray <aaron27@ryecoinc.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault-roundcube/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -119,12 +119,6 @@ msgstr "Пользователь SMTP:  %u"
 msgid "Settings"
 msgstr "Настройки"
 
-msgid "Show Tab"
-msgstr ""
-
-msgid "Show tab containing webmail frame."
-msgstr "Показать вкладку, содержащую веб-почту в вкладке."
-
 msgid ""
 "The mail host chosen to perform the log-in. Leave blank to show a textbox at"
 " login."
@@ -135,6 +129,3 @@ msgstr "Используется только для установки базы
 
 msgid "Username"
 msgstr "Имя пользователя"
-
-msgid "Webmail"
-msgstr "Почтовый веб-интерфейс"

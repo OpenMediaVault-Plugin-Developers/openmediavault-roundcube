@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-roundcube\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-18 09:17-0600\n"
+"POT-Creation-Date: 2015-04-04 10:52-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,12 +113,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-msgid "Show Tab"
-msgstr ""
-
-msgid "Show tab containing webmail frame."
-msgstr ""
-
 msgid "The mail host chosen to perform the log-in. Leave blank to show a textbox at login."
 msgstr ""
 
@@ -126,7 +120,4 @@ msgid "Used only for installing Roundcube database and will not be saved."
 msgstr ""
 
 msgid "Username"
-msgstr ""
-
-msgid "Webmail"
 msgstr ""
