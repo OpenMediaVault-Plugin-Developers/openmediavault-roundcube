@@ -26,7 +26,6 @@ set -e
 
 
 VERSION="1.1.1"
-VERSION="1.1.1"
 FILENAME="roundcubemail-${VERSION}.tar.gz"
 LINK="https://downloads.sourceforge.net/project/roundcubemail/roundcubemail/${VERSION}/${FILENAME}"
 FILE="/tmp/${FILENAME}"
